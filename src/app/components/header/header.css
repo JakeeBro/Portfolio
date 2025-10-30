@@ -1,9 +1,18 @@
 nav {
   display: flex;
-  gap: 1rem;
-  background: #111;
-  padding: 1rem;
+  justify-content: center;
   font-family: sans-serif;
+}
+
+.nav-container {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  width: fit-content;
+  border-radius: 10px;
 }
 
 a {
@@ -19,5 +28,5 @@ a:hover {
 
 a.active {
   color: gold;
-  border-bottom: 2px solid gold;
+  /*border-bottom: 2px solid gold;*/
 }

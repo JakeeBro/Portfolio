@@ -1,0 +1,30 @@
+:host {
+  width: 250px;
+}
+
+.tool {
+  background-color: #111;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  border: 2px solid #111;
+  transition: all 0.1s ease;
+}
+
+.tool:hover {
+  transform: scale(1.05);
+  border: 2px solid gold;
+  font-weight: bold;
+}
+
+img {
+  width: 70px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: white;
+  margin: 0;
+  padding: .5rem;
+}

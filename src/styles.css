@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background-color: black;
+  font-family: sans-serif;
+}
+
+/* Scroll Bar */
+
+html {
+  overflow-y: scroll;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px; /* scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: black; /* your site background color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333; /* the draggable part */
+  border-radius: 6px;
+  border: 2px solid black; /* so it blends with your background */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* Firefox */
+* {
+  scrollbar-color: #333 black; /* thumb color, track color */
+  scrollbar-width: thin;
+}
+
+

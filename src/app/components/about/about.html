@@ -1,1 +1,34 @@
-<p>about works!</p>
+<section>
+  <div class="about-container">
+    <h1>Hi, I'm <span class="highlight">Jake</span></h1>
+    <p>I'm a software engineering student and indie game developer</p>
+  </div>
+</section>
+<section>
+  <div class="tools-container">
+    <div class="tool-group">
+      <h2>Game Development</h2>
+      <div class="tool-list">
+        @for (tool of gamedev; track tool.src) {
+          <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
+        }
+      </div>
+    </div>
+    <div class="tool-group">
+      <h2>Web Development</h2>
+      <div class="tool-list">
+        @for (tool of webdev; track tool.src) {
+          <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
+        }
+      </div>
+    </div>
+    <div class="tool-group">
+      <h2>Video Editing</h2>
+      <div class="tool-list">
+        @for (tool of media; track tool.src) {
+          <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
+        }
+      </div>
+    </div>
+  </div>
+</section>
