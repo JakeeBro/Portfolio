@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  gap: 1rem;
+  background: #111;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: gold;
+}
+
+a.active {
+  color: gold;
+  border-bottom: 2px solid gold;
+}
