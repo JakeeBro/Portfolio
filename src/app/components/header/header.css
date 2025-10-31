@@ -34,7 +34,7 @@ a.active {
 @media (max-width: 1080px) {
   nav {
     position: fixed;
-    bottom: 1rem;
+    bottom: 0.25rem;
     left: 0;
     width: 100%;
     z-index: 1000;
