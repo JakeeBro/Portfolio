@@ -3,6 +3,7 @@
 }
 
 .tool {
+  margin: 0;
   background-color: #111;
   padding: 1rem 2rem;
   border-radius: 20px;
@@ -27,4 +28,15 @@ p {
   color: white;
   margin: 0;
   padding: .5rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 800px) {
+  :host {
+    width: 200px;
+  }
+
+  p {
+    font-size: .85rem;
+  }
 }

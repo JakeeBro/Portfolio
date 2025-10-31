@@ -18,9 +18,9 @@ export class About {
 
   webdev = [
     { src: 'angular.svg', alt: 'Angular' },
+    { src: 'javascript.svg', alt: 'JavaScript' },
     { src: 'html.svg', alt: 'HTML' },
-    { src: 'css.svg', alt: 'CSS' },
-    { src: 'javascript.svg', alt: 'JavaScript' }
+    { src: 'css.svg', alt: 'CSS' }
   ]
 
   media = [
