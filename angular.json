@@ -27,7 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "outputPath": "dist/portfolio",
+            "outputPath": "dist",
             "baseHref": "/Portfolio/"
           },
           "configurations": {
