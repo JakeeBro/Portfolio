@@ -1,0 +1,75 @@
+section {
+  margin: 1rem 0 0 0; /*Remove for Smaller Screens*/
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section .banner {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+}
+
+h1 {
+
+}
+
+.project-section {
+  display: flex;
+  width: 750px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-section img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.project-section div {
+  margin: 1rem;
+  padding: 0;
+  background-color: #111;
+  width: 100%;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.project-section div p {
+  margin: 0;
+  padding: 1rem;
+  line-height: 1.37;
+}
+
+.project-section .link {
+  margin: 1rem;
+  padding: 0;
+  background-color: #111;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.project-section a {
+  margin: 1rem;
+  padding: 1rem 0;
+  background-color: #111;
+  width: 100%;
+  border-radius: 20px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: gold;
+  border: 2px solid transparent;
+  transition: transform 0.1s ease;
+}
+
+.project-section a:hover {
+  transform: scale(1.025);
+  border: 2px solid gold;
+}
