@@ -52,7 +52,7 @@ export class Projects {
     {
       id: 'portfolio',
       title: 'Portfolio',
-      image: 'thumbnails/portfolio.png',
+      image: 'profile.jpg',
       desc: 'YOU 🫵 ARE HERE 📍',
       icon: 'icons/angular.svg'
     },

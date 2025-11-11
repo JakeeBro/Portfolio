@@ -28,7 +28,7 @@ export const ProjectPage = {
     'desc': 'This is a Cooperative Survival Horror game where you work the night shift restocking stores. The stock is in the basement. ' +
       'The basement is planned to be a randomly generated dungeon filled with monsters. You and your friends will have to defend yourselves ' +
       'and survive the dangers of the basement while trying to locate the stock the store needs. ',
-    'banner': 'thumbnails/night-shift.png',
+    'banner': '',
     'tech': ['Unreal Engine, Blender'],
     'link': '',
     'sections': [

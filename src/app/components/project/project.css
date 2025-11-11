@@ -1,5 +1,5 @@
 section {
-  margin: 1rem 0 0 0; /*Remove for Smaller Screens*/
+  margin: 1rem 0 4rem 0; /*Remove for Smaller Screens*/
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,8 @@ h1 {
 }
 
 .project-section {
+  margin: 0 0 1rem 0;
+  padding: 0;
   display: flex;
   width: 750px;
   flex-direction: column;
@@ -27,6 +29,7 @@ h1 {
 }
 
 .project-section img {
+  margin-bottom: 1rem;
   width: 100%;
   height: 450px;
   object-fit: cover;
@@ -34,7 +37,7 @@ h1 {
 }
 
 .project-section div {
-  margin: 1rem;
+  margin: 0;
   padding: 0;
   background-color: #111;
   width: 100%;
@@ -72,4 +75,14 @@ h1 {
 .project-section a:hover {
   transform: scale(1.025);
   border: 2px solid gold;
+}
+
+@media (max-width: 800px) {
+  .project-section {
+    width: 400px;
+  }
+
+  .project-section img {
+    height: 240px;
+  }
 }
