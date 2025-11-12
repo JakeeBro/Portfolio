@@ -24,9 +24,11 @@ Get-ChildItem -Path . -Force | Where-Object { @('.angular', '.git', '.idea', 'di
 robocopy ../temp-gh-pages . /COPY:DAT /R:0 /W:0
 
 git add .
+
 git commit -m "Deploy"
 
 if (Test-Path ../temp-gh-pages) { Remove-Item -Recurse -Force ../temp-gh-pages }
 
 git push
+
 git checkout main
