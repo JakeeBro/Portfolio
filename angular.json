@@ -22,6 +22,21 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "public/icons",
+                "output": "icons"
+              },
+              {
+                "glob": "**/*",
+                "input": "public/media",
+                "output": "media"
+              },
+              {
+                "glob": "**/*",
+                "input": "public/thumbnails",
+                "output": "thumbnails"
               }
             ],
             "styles": [
