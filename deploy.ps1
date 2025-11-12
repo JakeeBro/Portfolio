@@ -29,7 +29,7 @@ git commit -m "Empty Directory"
 git push
 
 # Copy files from the Temp Directory into the Current Directory
-robocopy ../temp-gh-pages . /COPY:DAT /R:0 /W:0
+robocopy ../temp-gh-pages . /E /COPY:DAT /R:0 /W:0
 
 # Commit the Updated Site Files to GH Pages
 git add .
