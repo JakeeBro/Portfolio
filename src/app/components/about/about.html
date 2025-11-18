@@ -10,7 +10,7 @@
   </div>
 </section>
 <section>
-  <div class="tools-container">
+  <!--<div class="tools-container">
     <div class="tool-group">
       <h2>Game Development</h2>
       <div class="tool-list">
@@ -35,5 +35,33 @@
         }
       </div>
     </div>
+  </div>-->
+  <div class="tool-belt">
+    <div class="belt belt-left">
+      <div class="belt-track">
+        @for (_ of [0, 0, 0]; track _) {
+          @for (tool of gamedev; track tool.src) {
+            <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
+          }
+        }
+      </div>
+    </div>
+    <div class="belt belt-right">
+      <div class="belt-track">
+        @for (_ of [0, 0, 0]; track _) {
+          @for (tool of webdev; track tool.src) {
+            <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="contact-container">
+    <h1>Contact</h1>
+
+    <a href="mailto:jakeposhepny@proton.me" class="link">Email</a>
+    <a href="https://www.linkedin.com/in/jakeposhepny/" class="link">LinkedIn</a>
   </div>
 </section>

@@ -13,18 +13,21 @@ export class About {
   gamedev = [
     { src: 'icons/unreal-engine.svg', alt: 'Unreal Engine 5' },
     { src: 'icons/unity.svg', alt: 'Unity' },
-    { src: 'icons/blender.svg', alt: 'Blender' }
+    { src: 'icons/blender.svg', alt: 'Blender' },
+    { src: 'icons/premiere.svg', alt: 'Premiere Pro' },
+    { src: 'icons/aftereffects.svg', alt: 'After Effects' }
   ]
 
   webdev = [
     { src: 'icons/angular.svg', alt: 'Angular' },
+    { src: 'icons/spring.svg', alt: 'Spring Boot' },
     { src: 'icons/javascript.svg', alt: 'JavaScript' },
-    { src: 'icons/html.svg', alt: 'HTML' },
-    { src: 'icons/css.svg', alt: 'CSS' }
+    { src: 'icons/html.svg', alt: 'HTML5' },
+    { src: 'icons/css.svg', alt: 'CSS3' }
   ]
 
-  media = [
+  /*media = [
     { src: 'icons/premiere.svg', alt: 'Premiere Pro' },
     { src: 'icons/aftereffects.svg', alt: 'After Effects' }
-  ]
+  ]*/
 }

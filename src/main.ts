@@ -4,13 +4,11 @@ import { App } from './app/app';
 import { provideRouter, Routes, withInMemoryScrolling } from '@angular/router';
 import { About } from './app/components/about/about';
 import { Projects } from './app/components/projects/projects';
-import { Contact } from './app/components/contact/contact';
 
 const routes: Routes = [
   { path: '', redirectTo: 'about', pathMatch: 'full' },
   { path: 'about', component: About },
-  { path: 'projects', component: Projects },
-  { path: 'contact', component: Contact }
+  { path: 'projects', component: Projects }
 ];
 
 bootstrapApplication(App, {

@@ -76,6 +76,63 @@ p {
   color: gold;
 }
 
+/* BELT TEST */
+
+/* ICONS */
+
+
+
+.tool-belt {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.belt {
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.belt-track {
+  display: inline-flex;
+  gap: 2rem;
+  animation: scroll-left 30s linear infinite;
+  padding: 0.25rem;
+}
+
+.belt-right .belt-track {
+  animation-name: scroll-right;
+}
+
+@keyframes scroll-left {
+  0%  { transform: translateX(0); }
+  100%  { transform: translateX(-67%); }
+}
+
+@keyframes scroll-right {
+  0%  { transform: translateX(-67%); }
+  100%  { transform: translateX(0); }
+}
+
+.belt-left
+
+/* END BELT TEST */
+
+/* CONTACT TEST */
+
+.link {
+  margin: 1rem;
+  padding: 0;
+  background-color: #111;
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* END CONTACT TEST */
+
 @media (max-width: 1080px) {
   .tool-list {
     flex-wrap: wrap;
