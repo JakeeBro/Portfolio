@@ -22,14 +22,14 @@
   font-weight: bold;
 }
 
-img {
+.tool-icon {
   width: 70px;
   height: auto;
   margin: 0;
   padding: 0;
 }
 
-p {
+.tool-name {
   color: white;
   margin: 0;
   padding: .5rem;
@@ -37,11 +37,11 @@ p {
 }
 
 @media (max-width: 800px) {
-  /*:host {
-    width: 200px;
-  }*/
+  .tool {
+    width: fit-content;
+  }
 
-  p {
-    font-size: .85rem;
+  .tool-name {
+    display: none;
   }
 }

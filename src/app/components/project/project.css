@@ -1,88 +1,98 @@
-section {
-  margin: 1rem 0 4rem 0; /*Remove for Smaller Screens*/
-  padding: 0;
+.project {
+  margin-top: 1rem; /* Remove for Smaller Screens */
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-section .banner {
+.content-container {
+  margin: 1rem;
+  display: flex;
+
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.banner {
   background-color: white;
+
   margin: 0;
   padding: 0;
   width: 100%;
   height: 35vh;
+
   object-fit: cover;
 }
 
 h1 {
-
-}
-
-.project-section {
-  margin: 0 0 1rem 0;
-  padding: 0;
-  display: flex;
-  width: 750px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.project-section img {
-  margin-bottom: 1rem;
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.project-section div {
   margin: 0;
   padding: 0;
-  background-color: #111;
-  width: 100%;
-  border-radius: 20px;
-  text-align: left;
 }
 
-.project-section div p {
+.info-container {
+  background-color: #111;
+
   margin: 0;
-  padding: 1rem;
-  line-height: 1.37;
-}
-
-.project-section .link {
-  margin: 1rem;
   padding: 0;
-  background-color: #111;
   width: 100%;
+  max-width: 750px;
+  height: fit-content;
+
   border-radius: 20px;
+
+  align-self: center;
 }
 
-.project-section a {
-  margin: 1rem;
+.info-link {
+  background-color: #111;
+  color: gold;
+
   padding: 1rem 0;
-  background-color: #111;
   width: 100%;
-  border-radius: 20px;
+  display: inline-block;
+
   font-size: 2rem;
   text-decoration: none;
-  color: gold;
+
+  box-sizing: border-box;
   border: 2px solid transparent;
+  border-radius: 20px;
+
   transition: transform 0.1s ease;
 }
 
-.project-section a:hover {
+.info-link:hover {
   transform: scale(1.025);
   border: 2px solid gold;
+
+  cursor: pointer;
+}
+
+.text-block {
+  padding: 0 1rem;
+
+  text-align: left;
+}
+
+.image-block {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  object-fit: cover;
+
+  border-radius: 20px 20px 0 0;
+}
+
+@media (max-width: 1080px) {
+  .project {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 800px) {
-  .project-section {
-    width: 400px;
-  }
 
-  .project-section img {
-    height: 240px;
-  }
+}
+
+@media (max-width: 550px) {
+
 }

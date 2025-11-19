@@ -65,13 +65,14 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
 }
 
 .project-list {
   margin: 0 auto;
   padding: 0;
-  max-width: fit-content;
+  max-width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -79,6 +80,10 @@
 }
 
 @media (max-width: 1080px) {
+  
+}
+
+@media (max-width: 800px) {
   .project-list {
     grid-template-columns: 1fr;
   }

@@ -98,7 +98,7 @@ export const ProjectPage = {
     'desc': 'This is a first person sci-fi puzzle game. The Player must solve puzzles using Lasers to power the essential systems ' +
       'of the Spaceship they are on. ' +
       '<br><br>This project is currently on hold while I finish school and work on Project: Night Shift. ',
-    'banner': 'thumbnails/lasers.png',
+    'banner': '',
     'tech': ['Unreal Engine, Blender'],
     'link': '',
     'sections': [
@@ -129,7 +129,7 @@ export const ProjectPage = {
       'but none of them have the same signature feel of the original Flappy Birds physics. ' +
       'Until now. I found a research paper online which calculated the exact formula for the original FLappy Birds jumping, and I ' +
       'implemented it in this game. ',
-    'banner': 'thumbnails/tap.png',
+    'banner': '',
     'tech': ['Unity, Photoshop'],
     'link': '',
     'sections': [

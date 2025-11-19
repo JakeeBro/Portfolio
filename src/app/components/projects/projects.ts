@@ -45,7 +45,7 @@ export class Projects {
     {
       id: 'world-map',
       title: 'World Map',
-      image: 'thumbnails/world-map.svg',
+      image: 'thumbnails/world-map.png',
       desc: 'School Project',
       icon: 'icons/angular.svg'
     },
