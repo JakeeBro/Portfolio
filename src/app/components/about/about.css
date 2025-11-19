@@ -179,6 +179,10 @@ p {
   .belt-track {
     animation: scroll-left 20s linear infinite;
   }
+
+  .belt-right .belt-track {
+    animation-name: scroll-right;
+  }
 }
 
 @media (max-width: 550px) {
