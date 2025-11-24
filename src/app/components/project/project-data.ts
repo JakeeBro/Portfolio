@@ -12,6 +12,17 @@ export const ProjectPage = {
     'sections': []
   },
 
+  'taniti': {
+    'title': 'Taniti',
+    'desc': 'This website was made as part of my studies at Western Governor\'s University. ' +
+      'It was made using standard HTML and CSS, as well as stock photos from Adobe. ' +
+      'It is a showcase of a fictional tropical island named Taniti. ',
+    'banner': 'thumbnails/taniti.jpg',
+    'tech': ['HTML, CSS'],
+    'link': 'https://jakeebro.github.io/Taniti/',
+    'sections': []
+  },
+
   'portfolio': {
     'title': 'Portfolio',
     'desc': 'This is a website designed to show off some of my work. This is where you are right now. ' +

@@ -50,6 +50,13 @@ export class Projects {
       icon: 'icons/angular.svg'
     },
     {
+      id: 'taniti',
+      title: 'Taniti',
+      image: 'thumbnails/taniti.jpg',
+      desc: 'School Project',
+      icon: 'icons/html.svg'
+    },
+    {
       id: 'portfolio',
       title: 'Portfolio',
       image: 'profile.jpg',
