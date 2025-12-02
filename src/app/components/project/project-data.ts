@@ -12,6 +12,35 @@ export const ProjectPage = {
     'sections': []
   },
 
+  'higher-lower': {
+    'title': 'Higher Lower',
+    'desc': 'This website was originally made as an interview project, but I decided to clean it up and convert it to Angular ' +
+      'as a form of practice. As of right now it is feature complete. There is a bug with the limiter, and I am still trying to work out a few issues with the CSS - ' +
+      'aka the bane of my existence.',
+    'banner': '',
+    'tech': ['Angular'],
+    'link': 'https://jakeebro.github.io/ng-higher-lower/',
+    'sections': []
+  },
+
+  'boxes': {
+    'title': 'Boxes',
+    'desc': 'This website was a way for me to practice making a fully deployed CRUD app. It is extremely simple. I made ' +
+      'it using Angular and Spring Boot. The front end is hosted on GitHub pages like all my other sites, and the backend is ' +
+      'hosted on Railway. ',
+    'banner': '',
+    'tech': ['Angular', 'Spring Boot'],
+    'link': 'https://jakeebro.github.io/boxes/',
+    'sections': [
+      {
+        'image': '',
+        'text': 'I am planning on expanding on this practice with another app soon, but I am very swamped with schoolwork ' +
+          'and real work and cleaning up everything for this portfolio. It will be a sort of social site where you can create and share ' +
+          'build loadouts for a specific game (or set of games, hopefully in the future). '
+      }
+    ]
+  },
+
   'taniti': {
     'title': 'Taniti',
     'desc': 'This website was made as part of my studies at Western Governor\'s University. ' +

@@ -50,6 +50,20 @@ export class Projects {
       icon: 'icons/angular.svg'
     },
     {
+      id: 'higher-lower',
+      title: 'Higher Lower',
+      image: 'thumbnails/higher-lower.png',
+      desc: 'Small Browser Game',
+      icon: 'icons/angular.svg'
+    },
+    {
+      id: 'boxes',
+      title: 'Boxes',
+      image: 'thumbnails/boxes.png',
+      desc: 'Small CRUD App',
+      icon: 'icons/spring.svg'
+    },
+    {
       id: 'taniti',
       title: 'Taniti',
       image: 'thumbnails/taniti.jpg',
