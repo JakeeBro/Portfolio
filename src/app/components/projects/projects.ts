@@ -43,10 +43,10 @@ export class Projects {
 
   web_projects: IProjectCard[] = [
     {
-      id: 'world-map',
-      title: 'World Map',
-      image: 'thumbnails/world-map.png',
-      desc: 'School Project',
+      id: 'taniti',
+      title: 'Taniti',
+      image: 'thumbnails/taniti.jpg',
+      desc: 'A fake travel website for the Pacific island of Taniti',
       icon: 'icons/angular.svg'
     },
     {
@@ -57,18 +57,18 @@ export class Projects {
       icon: 'icons/angular.svg'
     },
     {
+      id: 'world-map',
+      title: 'World Map',
+      image: 'thumbnails/world-map.png',
+      desc: 'School Project',
+      icon: 'icons/angular.svg'
+    },
+    {
       id: 'boxes',
       title: 'Boxes',
       image: 'thumbnails/boxes.png',
       desc: 'Small CRUD App',
       icon: 'icons/spring.svg'
-    },
-    {
-      id: 'taniti',
-      title: 'Taniti',
-      image: 'thumbnails/taniti.jpg',
-      desc: 'School Project',
-      icon: 'icons/html.svg'
     },
     {
       id: 'portfolio',

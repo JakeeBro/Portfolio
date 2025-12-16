@@ -34,21 +34,29 @@ export const ProjectPage = {
     'sections': [
       {
         'image': '',
-        'text': 'I am planning on expanding on this practice with another app soon, but I am very swamped with schoolwork ' +
-          'and real work and cleaning up everything for this portfolio. It will be a sort of social site where you can create and share ' +
-          'build loadouts for a specific game (or set of games, hopefully in the future). '
+        'text': 'I am planning on expanding on this practice with another app soon, after I finish some more classes. ' +
+          'I plan for it to be a sort of social site where you can create and share ' +
+          'build loadouts for a specific game (or set of games, hopefully, in the future). '
       }
     ]
   },
 
   'taniti': {
     'title': 'Taniti',
-    'desc': 'This website was made as part of my studies at Western Governor\'s University. ' +
-      'It was made using standard HTML and CSS, as well as stock photos from Adobe. ' +
-      'It is a showcase of a fictional tropical island named Taniti. ',
+    'desc': 'This website was originally made as part of my studies at Western Governor\'s University. ' +
+      'It started as standard HTML and CSS, and I decided to remake it using Angular as a way learning the framework. ' +
+      'It is a showcase of a fictional tropical island in the Pacific Ocean named Taniti. ' +
+      '<br><br>' +
+      'I used Firestore for the backend, as it is just a simple fake e-commerce app. ' +
+      'You can \'buy\' fake tickets for activities and \'order\' them through the site. ' +
+      '<br><br>' +
+      'There is a 20 item cart limit, as well as a 5 order account limit. It is all fake, ' +
+      'so please feel free to delete any orders if the limit is reached while you are testing it. ' +
+      '<br><br>' +
+      'It is fully responsive, and features a toggleble dark/light theme. You can find the theme toggle in the profile tab',
     'banner': 'thumbnails/taniti.jpg',
-    'tech': ['HTML, CSS'],
-    'link': 'https://jakeebro.github.io/Taniti/',
+    'tech': ['Angular'],
+    'link': 'https://jakeebro.github.io/ng-taniti/home',
     'sections': []
   },
 
@@ -167,14 +175,14 @@ export const ProjectPage = {
     'desc': 'This is a game inspired by the popular app Flappy Bird. I personally really enjoyed Flappy Bird, and I was disappointed ' +
       'when it was removed from the App Store and Google Play. I have searched for years for alternate versions to play instead, ' +
       'but none of them have the same signature feel of the original Flappy Birds physics. ' +
-      'Until now. I found a research paper online which calculated the exact formula for the original FLappy Birds jumping, and I ' +
+      '<br><br>Until now. <br><br>I found a research paper online which calculated the exact formula for the original Flappy Birds jumping, and I ' +
       'implemented it in this game. ',
     'banner': '',
     'tech': ['Unity, Photoshop'],
-    'link': '',
+    'link': 'https://superslicestudios.itch.io/flappy-prototype',
     'sections': [
       {
-        'image': 'icons/unity.svg',
+        'image': '',
         'text': 'The game is mostly on par with the features of the original so far, besides leaderboards and score medals. ' +
           'In the future, I would like to add customization and difficulty settings, as well as implement the very specific obstacle spawning logic ' +
           'from the original game. '
