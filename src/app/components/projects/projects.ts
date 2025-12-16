@@ -71,11 +71,18 @@ export class Projects {
       icon: 'icons/spring.svg'
     },
     {
+      id: 'snippets',
+      title: 'Code Snippets',
+      image: 'thumbnails/matrix.png',
+      desc: 'A Collection of various code snippets from my projects',
+      icon: 'icons/git.svg'
+    },
+    {
       id: 'portfolio',
       title: 'Portfolio',
       image: 'profile.jpg',
       desc: 'YOU 🫵 ARE HERE 📍',
       icon: 'icons/angular.svg'
-    },
+    }
   ]
 }

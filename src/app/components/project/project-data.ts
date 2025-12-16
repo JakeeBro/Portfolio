@@ -60,6 +60,15 @@ export const ProjectPage = {
     'sections': []
   },
 
+  'snippets': {
+    'title': 'Code Snippets',
+    'desc': 'This is a collection of scripts I\'ve made that I am particularly proud of.',
+    'banner': '',
+    'tech': [],
+    'link': 'https://github.com/JakeeBro/Snippets',
+    'sections': []
+  },
+
   'portfolio': {
     'title': 'Portfolio',
     'desc': 'This is a website designed to show off some of my work. This is where you are right now. ' +
