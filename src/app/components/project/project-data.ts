@@ -15,8 +15,12 @@ export const ProjectPage = {
   'higher-lower': {
     'title': 'Higher Lower',
     'desc': 'This website was originally made as an interview project, but I decided to clean it up and convert it to Angular ' +
-      'as a form of practice. As of right now it is feature complete. There is a bug with the limiter, and I am still trying to work out a few issues with the CSS - ' +
-      'aka the bane of my existence.',
+      'as a form of practice. ' +
+      '<br><br>' +
+      'It is a simple game where you must guess a random number within a range. You can choose the range yourself, and even limit the ' +
+      'amount of guesses you can take. ' +
+      '<br><br>' +
+      'I also added a set of predefined themes for you to choose from.',
     'banner': '',
     'tech': ['Angular'],
     'link': 'https://jakeebro.github.io/ng-higher-lower/',
