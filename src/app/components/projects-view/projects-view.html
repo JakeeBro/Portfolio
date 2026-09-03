@@ -1,5 +1,10 @@
 <div class="wrapper">
   <div class="content">
+    <div class="featured">
+      @for (project of featured_projects; track project.id) {
+        <app-projects-view-card [projectCardData]="project"/>
+      }
+    </div>
     <div class="filters">
       <app-tool-filter toolID="ue" (selected)="onToolSelected($event)"/>
       <app-tool-filter toolID="un" (selected)="onToolSelected($event)"/>

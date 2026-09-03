@@ -6,7 +6,7 @@ export interface IProjectCard {
   icon: string;
   toolID: string;
   specialColor?: string;
-  featured: boolean;
+  featured?: boolean;
 }
 
 export const featured_projects: IProjectCard[] = [
@@ -29,7 +29,6 @@ export const projects: IProjectCard[] = [
     desc: 'Restock the store shelves at your overnight job',
     icon: 'icons/unreal-engine.svg',
     toolID: 'ue',
-    featured: false,
   },
   {
     id: 'project-hunt',
@@ -38,7 +37,6 @@ export const projects: IProjectCard[] = [
     desc: 'Escape from a randomly generated forest',
     icon: 'icons/unreal-engine.svg',
     toolID: 'ue',
-    featured: false,
   },
   {
     id: 'project-lasers',
@@ -47,7 +45,6 @@ export const projects: IProjectCard[] = [
     desc: 'FPS puzzle game featuring a laser gun',
     icon: 'icons/unreal-engine.svg',
     toolID: 'ue',
-    featured: false,
   },
   {
     id: 'project-tappy',
@@ -56,7 +53,6 @@ export const projects: IProjectCard[] = [
     desc: 'Flappy Bird-like project',
     icon: 'icons/unity.svg',
     toolID: 'un',
-    featured: false,
   },
   {
     id: 'taniti',
@@ -65,7 +61,6 @@ export const projects: IProjectCard[] = [
     desc: 'A fake travel website for the Pacific island of Taniti',
     icon: 'icons/angular.svg',
     toolID: 'ng',
-    featured: false,
   },
   {
     id: 'higher-lower',
@@ -74,7 +69,6 @@ export const projects: IProjectCard[] = [
     desc: 'Small Browser Game',
     icon: 'icons/angular.svg',
     toolID: 'ng',
-    featured: false,
   },
   {
     id: 'world-map',
@@ -84,7 +78,6 @@ export const projects: IProjectCard[] = [
     icon: 'icons/angular.svg',
     toolID: 'ng',
     specialColor: 'white',
-    featured: false,
   },
   {
     id: 'boxes',
@@ -93,7 +86,6 @@ export const projects: IProjectCard[] = [
     desc: 'Small CRUD App',
     icon: 'icons/spring.svg',
     toolID: 'ng',
-    featured: false,
   },
 ]
 

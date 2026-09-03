@@ -1,5 +1,8 @@
-<div class="wrapper" (click)="openProject()">
+<div class="wrapper" [class.featured]="projectCardData.featured" (click)="openProject()">
   <div class="content">
+    @if (projectCardData.featured) {
+      <h1>FEATURED</h1>
+    }
     <img class="image" [src]="projectCardData.image" [alt]="projectCardData.title" [style.background-color]="projectCardData.specialColor || 'transparent'"/>
     <div class="info">
       <h3>{{ projectCardData.title }}</h3>

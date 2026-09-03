@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ToolFilter } from '../tool-filter/tool-filter';
-import { IProjectCard, projects } from '../../data/project-card-data';
+import { IProjectCard, projects, featured_projects } from '../../data/project-card-data';
 import { ProjectsViewCard } from '../projects-view-card/projects-view-card';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -44,4 +44,6 @@ export class ProjectsView {
 
     return this.projects.filter(project => project.toolID === this.selectedToolID);
   }
+
+  protected readonly featured_projects = featured_projects;
 }

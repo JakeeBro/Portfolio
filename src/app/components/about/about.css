@@ -1,5 +1,5 @@
 .about-container {
-  margin: 5rem 0;
+  margin: 3rem 0 1rem 0;
   justify-self: center;
 }
 
@@ -180,7 +180,7 @@ p {
 }
 
 .projects-section {
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   padding: 0;
 
   width: calc(1200px - 2rem);
