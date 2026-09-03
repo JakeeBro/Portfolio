@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="content">
+    <div class="filters">
+      <app-tool-filter toolID="ue" (selected)="onToolSelected($event)"/>
+      <app-tool-filter toolID="un" (selected)="onToolSelected($event)"/>
+      <app-tool-filter toolID="ng" (selected)="onToolSelected($event)"/>
+    </div>
+    <div class="projects">
+      @for (project of filteredProjects; track project.id) {
+        <app-projects-view-card [projectCardData]="project"/>
+      }
+    </div>
+  </div>
+</div>

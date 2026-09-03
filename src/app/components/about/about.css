@@ -1,5 +1,6 @@
 .about-container {
-  margin-top: 5rem;
+  margin: 5rem 0;
+  justify-self: center;
 }
 
 .tools-container {
@@ -176,6 +177,23 @@ p {
 
 .link .material-symbols-outlined:hover {
   color: gold;
+}
+
+.projects-section {
+  margin: 0 auto;
+  padding: 0;
+
+  width: calc(1200px - 2rem);
+
+  /*background-color: teal;*/
+
+  @media (max-width: 1250px) {
+    width: calc(800px - 2rem);
+  }
+
+  @media (max-width: 800px) {
+    width: calc(100% - 2rem);
+  }
 }
 
 /* END CONTACT TEST */

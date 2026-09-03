@@ -1,0 +1,61 @@
+/*************/
+/* COMPONENT */
+/*************/
+
+.wrapper {
+
+}
+
+.content {
+  margin: 0;
+  background-color: #111;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #111;
+  transition: all 0.1s ease;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
+}
+
+.content:hover {
+  cursor: pointer;
+  border: 2px solid gold;
+}
+
+/*********/
+/* IMAGE */
+/*********/
+
+.tool-icon {
+  width: 35px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/********/
+/* NAME */
+/********/
+
+.tool-name {
+  color: white;
+  margin: 0;
+  padding: .5rem;
+
+  font-size: 1.75rem;
+  line-height: 1;
+
+  @media (max-width: 1250px) {
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+}

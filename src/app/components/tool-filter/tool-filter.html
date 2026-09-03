@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <div class="content" (click)="selectTool()">
+    @if (tool) {
+      <img class="tool-icon" [src]="tool.src" [alt]="tool.name">
+      <h3 class="tool-name">{{ tool.name }}</h3>
+    }
+  </div>
+</div>

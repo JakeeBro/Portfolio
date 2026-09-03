@@ -1,13 +1,6 @@
 import { Component, Input, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
-
-export interface IProjectCard {
-  id: string;
-  title: string;
-  image: string;
-  desc: string;
-  icon: string;
-}
+import {IProjectCard} from '../../data/project-card-data';
 
 @Component({
   selector: 'app-project-card',
@@ -16,22 +9,17 @@ export interface IProjectCard {
   styleUrl: './project-card.css',
 })
 export class ProjectCard {
-  @Input() id!: string;
-  @Input() title!: string;
-  @Input() image!: string;
-  @Input() desc!: string;
-  @Input() icon!: string;
-  @Input() featured: boolean = false;
+  @Input() projectCardData!: IProjectCard;
 
   constructor(private router: Router) {}
 
   openProject() {
-    console.log('Navigating to ' + this.id);
-    this.router.navigate(['/projects', this.id]);
+    console.log('Navigating to ' + this.projectCardData.id);
+    this.router.navigate(['/projects', this.projectCardData.id]);
   }
 
   @HostBinding('class.featured')
   get isFeatured() {
-    return this.featured;
+    return this.projectCardData.featured;
   }
 }

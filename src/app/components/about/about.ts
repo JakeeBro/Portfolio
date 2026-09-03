@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Tool } from '../tool/tool';
+import { ProjectsView } from '../projects-view/projects-view';
 
 @Component({
   selector: 'app-about',
   imports: [
-    Tool
+    Tool,
+    ProjectsView
   ],
   templateUrl: './about.html',
   styleUrl: './about.css',

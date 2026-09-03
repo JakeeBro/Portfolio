@@ -1,0 +1,40 @@
+.wrapper {
+  /*background-color: red;*/
+
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+}
+
+.content {
+  /*background-color: orange;*/
+}
+
+.filters {
+  /*background-color: yellow;*/
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.filters > * {
+  flex: 1;
+}
+
+.projects {
+  /*background-color: green;*/
+  margin: 1rem 0;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1rem;
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

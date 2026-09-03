@@ -8,8 +8,8 @@ body {
 }
 
 section {
-  margin-bottom: 5rem;
-  display: flex;
+  margin-bottom: 1rem;
+  /*display: flex;*/
   justify-content: center;
   text-align: center;
 }

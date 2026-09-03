@@ -1,14 +1,14 @@
 <div class="card" (click)="openProject()">
   <div class="card-content">
     <div class="card-image-wrapper">
-      <img class="card-image" [src]="image" [alt]="title">
+      <img class="card-image" [src]="projectCardData.image" [alt]="projectCardData.title">
     </div>
     <div class="card-label">
       <div class="card-info">
-        <h3>{{ title }}</h3>
-        <p>{{ desc }}</p>
+        <h3>{{ projectCardData.title }}</h3>
+        <p>{{ projectCardData.desc }}</p>
       </div>
-      <img class="card-icon" id="icon"[src]="icon" [alt]="icon">
+      <img class="card-icon" id="icon"[src]="projectCardData.icon" [alt]="projectCardData.icon">
     </div>
   </div>
 </div>
