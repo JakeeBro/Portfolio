@@ -1,8 +1,16 @@
 .projects-section {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  margin-top: 3rem;
+  gap: 1rem;
+}
+
+h1 {
+  padding: 0;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
 }
 
 .project-entry {
@@ -80,7 +88,7 @@
 }
 
 @media (max-width: 1080px) {
-  
+
 }
 
 @media (max-width: 800px) {

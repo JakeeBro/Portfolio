@@ -19,6 +19,14 @@
   <h1>My Projects</h1>
   <div class="projects-container">
     <div class="project-group">
+      <h2>Featured</h2>
+      <div class="project-list">
+        @for (project of featured_projects; track featured_projects) {
+          <app-project-card [featured]="true" [id]="project.id" [title]="project.title" [image]="project.image" [desc]="project.desc" [icon]="project.icon"></app-project-card>
+        }
+      </div>
+    </div>
+    <div class="project-group">
       <h2>Web Development</h2>
       <div class="project-list">
         @for (project of web_projects; track web_projects) {

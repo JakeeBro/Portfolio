@@ -10,6 +10,17 @@ import { ProjectCard, IProjectCard } from '../project-card/project-card';
   styleUrl: './projects.css',
 })
 export class Projects {
+
+  featured_projects: IProjectCard[] = [
+    {
+      id: 'posh-framework',
+      title: 'PoshFramework',
+      image: 'thumbnails/night-shift.png',
+      desc: 'An Unreal Engine 5 Framework Plugin',
+      icon: 'icons/unreal-engine.svg'
+    }
+  ]
+
   game_projects: IProjectCard[] = [
     {
       id: 'project-night-shift',

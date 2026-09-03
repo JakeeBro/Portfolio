@@ -1,5 +1,5 @@
 .about-container {
-
+  margin-top: 5rem;
 }
 
 .tools-container {
@@ -49,7 +49,7 @@
   to { transform: rotate(360deg); }
 }
 
-.profile img {
+.profile .pic-wrapper img {
   width: 180px;
   height: 180px;
   margin: 0;
@@ -59,7 +59,7 @@
   transition: all 0.1s ease;
 }
 
-.profile img:hover {
+.profile .pic-wrapper img:hover {
   transform: scale(1.05);
 }
 
@@ -70,6 +70,10 @@
 p {
   color: white;
   font-size: large;
+}
+
+.profile-info h1 {
+  text-align: left;
 }
 
 .highlight {
@@ -137,28 +141,41 @@ p {
 .link-container {
   margin: 0;
   padding: 0;
-  width: 400px;
+  width: fit-content;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
 }
 
 .link {
+  color: white;
   display: block;
   margin: 0;
-  padding: 1rem 0;
-  background-color: #111;
+  padding: 0;
   width: 100%;
-  border-radius: 20px;
   text-decoration: none;
-  border: 2px solid transparent;
-  color: gold;
-  transition: all 0.1s ease;
 }
 
 .link:hover {
-  transform: scale(1.05);
-  border: 2px solid gold;
+  color: gold;
+}
+
+.link svg {
+  width: 42px;
+}
+
+.link img:hover {
+
+}
+
+.link .material-symbols-outlined {
+  color: white;
+  font-size: 50px;
+  line-height: 1;
+}
+
+.link .material-symbols-outlined:hover {
+  color: gold;
 }
 
 /* END CONTACT TEST */
@@ -176,6 +193,14 @@ p {
     gap: 1rem;
   }
 
+  .profile-info h1 {
+    text-align: center;
+  }
+
+  .link-container {
+    justify-self: center;
+  }
+
   .belt-track {
     animation-duration: 20s;
   }
@@ -188,9 +213,5 @@ p {
 @media (max-width: 550px) {
   .contact-container {
     padding: 0 1rem;
-  }
-
-  .link-container {
-    width: 100%;
   }
 }

@@ -50,7 +50,13 @@ h1 {
   width: 100%;
   display: inline-block;
 
+  font-family: 'Saira', sans-serif;
   font-size: 2rem;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.0;
+  font-stretch: 75%;
   text-decoration: none;
 
   box-sizing: border-box;

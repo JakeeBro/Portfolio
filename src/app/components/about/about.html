@@ -1,11 +1,23 @@
 <section>
   <div class="about-container">
-    <h1>Hi, I'm <span class="highlight">Jake</span></h1>
     <div class="profile">
       <div class="pic-wrapper">
         <img src="profile.jpg" alt="Jake">
       </div>
-      <p>I'm a software engineering student and aspiring indie game developer</p>
+      <div class="profile-info">
+        <h1>Hi, I'm <span class="highlight">Jake</span></h1>
+        <p>I'm a software engineering student and aspiring indie game developer</p>
+        <div class="link-container">
+          <a href="mailto:jakeposhepny@proton.me" class="link">
+            <span class="material-symbols-outlined">mail</span>
+          </a>
+          <a href="https://www.linkedin.com/in/jakeposhepny/" class="link">
+            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="50px" height="50px">
+              <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -41,7 +53,7 @@
       <div class="belt-track">
         @for (_ of [0, 0, 0]; track _) {
           @for (tool of gamedev; track tool.src) {
-            <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
+            <app-tool [source]="tool.src" [alternate]="tool.alt"></app-tool>
           }
         }
       </div>
@@ -50,20 +62,10 @@
       <div class="belt-track">
         @for (_ of [0, 0, 0]; track _) {
           @for (tool of webdev; track tool.src) {
-            <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
+            <app-tool [source]="tool.src" [alternate]="tool.alt"></app-tool>
           }
         }
       </div>
-    </div>
-  </div>
-</section>
-<section>
-  <div class="contact-container">
-    <h1>Contact</h1>
-
-    <div class="link-container">
-      <a href="mailto:jakeposhepny@proton.me" class="link">Email</a>
-      <a href="https://www.linkedin.com/in/jakeposhepny/" class="link">LinkedIn</a>
     </div>
   </div>
 </section>

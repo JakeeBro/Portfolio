@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tool.css',
 })
 export class Tool {
-  @Input() src!: string;
-  @Input() alt!: string;
+  @Input() source!: string;
+  @Input() alternate!: string;
 }
