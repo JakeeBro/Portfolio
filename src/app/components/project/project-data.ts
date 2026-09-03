@@ -85,7 +85,7 @@ export const ProjectPage = {
   },
 
   'project-night-shift': {
-    'title': 'Project: Night Shift',
+    'title': 'Night Shift',
     'desc': 'This is a Cooperative Survival Horror game where you work the night shift restocking stores. The stock is in the basement. ' +
       'The basement is planned to be a randomly generated dungeon filled with monsters. You and your friends will have to defend yourselves ' +
       'and survive the dangers of the basement while trying to locate the stock the store needs. ',
@@ -121,7 +121,7 @@ export const ProjectPage = {
   },
 
   'project-hunt': {
-    'title': 'Project: Hunt',
+    'title': 'Hunt',
     'desc': 'This is a Survival Horror game set in a Procedural Forest. The Player is a simple Hunter, on a trip to the wilderness. ' +
       'During the night, a monster hunts them. The Player must explore and find gear to defeat the monster and escape the forest. ' +
       '<br><br>This project is currently on hold while I finish school and work on Project: Night Shift.',
@@ -155,7 +155,7 @@ export const ProjectPage = {
   },
 
   'project-lasers': {
-    'title': 'Project: Lasers',
+    'title': 'Lasers',
     'desc': 'This is a first person sci-fi puzzle game. The Player must solve puzzles using Lasers to power the essential systems ' +
       'of the Spaceship they are on. ' +
       '<br><br>This project is currently on hold while I finish school and work on Project: Night Shift. ',
@@ -184,7 +184,7 @@ export const ProjectPage = {
   },
 
   'project-tappy': {
-    'title': 'Project: Tappy',
+    'title': 'Tappy',
     'desc': 'This is a game inspired by the popular app Flappy Bird. I personally really enjoyed Flappy Bird, and I was disappointed ' +
       'when it was removed from the App Store and Google Play. I have searched for years for alternate versions to play instead, ' +
       'but none of them have the same signature feel of the original Flappy Birds physics. ' +

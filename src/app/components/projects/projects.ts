@@ -24,28 +24,28 @@ export class Projects {
   game_projects: IProjectCard[] = [
     {
       id: 'project-night-shift',
-      title: 'Project: Night Shift',
+      title: 'Night Shift',
       image: 'thumbnails/night-shift.png',
       desc: 'Restock the store shelves at your overnight job',
       icon: 'icons/unreal-engine.svg'
     },
     {
       id: 'project-hunt',
-      title: 'Project: Hunt',
+      title: 'Hunt',
       image: 'thumbnails/terror.png',
       desc: 'Escape from a randomly generated forest',
       icon: 'icons/unreal-engine.svg'
     },
     {
       id: 'project-lasers',
-      title: 'Project: Lasers',
+      title: 'Lasers',
       image: 'thumbnails/lasers.png',
-      desc: 'Solve puzzles using lasers to repair vital systems after a space pirate attack',
+      desc: 'FPS puzzle game featuring a laser gun',
       icon: 'icons/unreal-engine.svg'
     },
     {
       id: 'project-tappy',
-      title: 'Project: Tappy',
+      title: 'Flappy',
       image: 'thumbnails/tap.png',
       desc: 'Flappy Bird-like project',
       icon: 'icons/unity.svg'

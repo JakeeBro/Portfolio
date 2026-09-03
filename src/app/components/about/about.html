@@ -51,7 +51,7 @@
   <div class="tool-belt">
     <div class="belt belt-left">
       <div class="belt-track">
-        @for (_ of [0, 0, 0]; track _) {
+        @for (_ of [0, 0, 0]; track $index) {
           @for (tool of gamedev; track tool.src) {
             <app-tool [source]="tool.src" [alternate]="tool.alt"></app-tool>
           }
@@ -60,7 +60,7 @@
     </div>
     <div class="belt belt-right">
       <div class="belt-track">
-        @for (_ of [0, 0, 0]; track _) {
+        @for (_ of [0, 0, 0]; track $index) {
           @for (tool of webdev; track tool.src) {
             <app-tool [source]="tool.src" [alternate]="tool.alt"></app-tool>
           }

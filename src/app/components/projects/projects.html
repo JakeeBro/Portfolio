@@ -21,7 +21,7 @@
     <div class="project-group">
       <h2>Featured</h2>
       <div class="project-list">
-        @for (project of featured_projects; track featured_projects) {
+        @for (project of featured_projects; track project.id) {
           <app-project-card [featured]="true" [id]="project.id" [title]="project.title" [image]="project.image" [desc]="project.desc" [icon]="project.icon"></app-project-card>
         }
       </div>
@@ -29,7 +29,7 @@
     <div class="project-group">
       <h2>Web Development</h2>
       <div class="project-list">
-        @for (project of web_projects; track web_projects) {
+        @for (project of web_projects; track project.id) {
           <app-project-card [id]="project.id" [title]="project.title" [image]="project.image" [desc]="project.desc" [icon]="project.icon"></app-project-card>
         }
       </div>
@@ -37,7 +37,7 @@
     <div class="project-group">
       <h2>Game Development</h2>
       <div class="project-list">
-        @for (project of game_projects; track game_projects) {
+        @for (project of game_projects; track project.id) {
           <app-project-card [id]="project.id" [title]="project.title" [image]="project.image" [desc]="project.desc" [icon]="project.icon"></app-project-card>
         }
       </div>

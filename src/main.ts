@@ -11,11 +11,5 @@ const routes: Routes = [
   { path: 'projects', component: Projects }
 ];
 
-bootstrapApplication(App, {
-  ...appConfig,
-  providers: [
-    ...(appConfig.providers || {}),
-    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' }))
-  ]
-})
+bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));

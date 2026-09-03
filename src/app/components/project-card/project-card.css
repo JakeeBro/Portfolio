@@ -34,12 +34,17 @@
   }
 
   @media (max-width: 800px) {
+    .card {
+      width: 500px;
+    }
+
     .card:hover {
       transform: scale(1.025);
       border: 2px solid gold;
     }
 
     .card-image-wrapper {
+      display: none;
       width: 500px;
     }
 
@@ -53,6 +58,11 @@
   }
 
   @media (max-width: 525px) {
+    .card {
+      width: 95%;
+      margin: auto;
+    }
+
     .card-image-wrapper {
       width: 100%;
     }
@@ -71,7 +81,6 @@ h2 {
 .card {
   margin: 0;
   padding: 0;
-  width: 100%;
   background-color: #111;
   box-sizing: border-box;
   border: 2px solid transparent;
@@ -83,6 +92,10 @@ h2 {
 .card:hover {
   transform: scale(1.025);
   border: 2px solid gold;
+}
+
+.card-content {
+
 }
 
 .card-image-wrapper {
@@ -120,7 +133,6 @@ h2 {
 
 .card-info {
   margin: 0.25rem 0.5rem;
-  width: auto;
 }
 
 .card-info h2 {
@@ -144,7 +156,12 @@ h2 {
 }
 
 @media (max-width: 800px) {
+  .card {
+    width: 500px;
+  }
+
   .card-image-wrapper {
+    display: none;
     width: 500px;
   }
 
@@ -154,9 +171,22 @@ h2 {
 }
 
 @media (max-width: 525px) {
-  .card-image-wrapper {
+  .card {
+    margin: auto;
+    width: 95%;
+  }
+
+  .card-content {
     width: 100%;
   }
+
+  .card-info {
+    width: 250px;
+  }
+
+  /*.card-image-wrapper {
+    width: 100%;
+  }*/
 
   .card-label {
     width: 100%;
