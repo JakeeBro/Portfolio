@@ -4,10 +4,10 @@
 
 .tool {
   margin: 0;
-  background-color: #111;
+  background-color: var(--site-background-light);
   padding: 1rem;
   border-radius: 20px;
-  border: 2px solid #111;
+  border: 2px solid var(--site-background-light);
   transition: all 0.1s ease;
   display: flex;
   flex-direction: row;

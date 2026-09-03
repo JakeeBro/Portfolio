@@ -30,10 +30,11 @@ export class ProjectsView {
   onToolSelected(toolID: string) {
     this.selectedToolID = toolID;
 
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { tool: toolID }
-    });
+    window.history.replaceState(
+      {},
+      '',
+      `${location.pathname}?tool=${toolID}`
+    );
   }
 
   get filteredProjects(): IProjectCard[] {

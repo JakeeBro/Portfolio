@@ -2,9 +2,14 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: var(--site-background);
   font-family: sans-serif;
   color: white;
+}
+
+:root {
+  --site-background: #070707;
+  --site-background-light: #171717;
 }
 
 section {
@@ -72,13 +77,13 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: black; /* your site background color */
+  background: var(--site-background); /* your site background color */
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #333; /* the draggable part */
   border-radius: 6px;
-  border: 2px solid black; /* so it blends with your background */
+  border: 2px solid var(--site-background); /* so it blends with your background */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -87,7 +92,7 @@ html {
 
 /* Firefox */
 * {
-  scrollbar-color: #333 black; /* thumb color, track color */
+  scrollbar-color: #333 var(--site-background); /* thumb color, track color */
   scrollbar-width: thin;
 }
 

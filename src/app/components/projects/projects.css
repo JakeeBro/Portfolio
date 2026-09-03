@@ -14,7 +14,7 @@ h2 {
 }
 
 .project-entry {
-  background-color: #111;
+  background-color: var(--site-background-light);
   border-radius: 20px;
 }
 
@@ -40,7 +40,7 @@ h2 {
 }
 
 .project-image-container .type {
-  background-color: #111;
+  background-color: var(--site-background-light);
   padding: 1rem;
   border-radius: 20px;
   position: absolute;

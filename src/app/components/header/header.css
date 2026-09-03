@@ -5,7 +5,7 @@ nav {
 }
 
 .nav-container {
-  background: #111;
+  background: var(--site-background-light);
   display: flex;
   justify-content: center;
   gap: 2rem;
