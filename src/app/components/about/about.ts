@@ -11,7 +11,7 @@ import { Tool } from '../tool/tool';
 })
 export class About {
   gamedev = [
-    { src: 'icons/unreal-engine.svg', alt: 'Unreal Engine 5' },
+    { src: 'icons/unreal-engine.svg', alt: 'Unreal Engine' },
     { src: 'icons/unity.svg', alt: 'Unity' },
     { src: 'icons/blender.svg', alt: 'Blender' },
     { src: 'icons/premiere.svg', alt: 'Premiere Pro' },
@@ -21,6 +21,18 @@ export class About {
   webdev = [
     { src: 'icons/angular.svg', alt: 'Angular' },
     { src: 'icons/spring.svg', alt: 'Spring Boot' },
+    { src: 'icons/javascript.svg', alt: 'JavaScript' },
+    { src: 'icons/html.svg', alt: 'HTML5' },
+    { src: 'icons/css.svg', alt: 'CSS3' }
+  ]
+
+  mini = [
+    { src: 'icons/unreal-engine.svg', alt: 'Unreal Engine' },
+    { src: 'icons/unity.svg', alt: 'Unity' },
+    { src: 'icons/angular.svg', alt: 'Angular' }
+  ]
+
+  mini2 = [
     { src: 'icons/javascript.svg', alt: 'JavaScript' },
     { src: 'icons/html.svg', alt: 'HTML5' },
     { src: 'icons/css.svg', alt: 'CSS3' }

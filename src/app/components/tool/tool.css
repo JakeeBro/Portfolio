@@ -38,7 +38,17 @@
 
 @media (max-width: 800px) {
   .tool {
+    padding: 0;
+
     width: fit-content;
+    background-color: transparent;
+
+    border: none;
+  }
+
+  .tool:hover {
+    transform: scale(1);
+    border: none;
   }
 
   .tool-name {

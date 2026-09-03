@@ -22,37 +22,11 @@
   </div>
 </section>
 <section>
-  <!--<div class="tools-container">
-    <div class="tool-group">
-      <h2>Game Development</h2>
-      <div class="tool-list">
-        @for (tool of gamedev; track tool.src) {
-          <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
-        }
-      </div>
-    </div>
-    <div class="tool-group">
-      <h2>Web Development</h2>
-      <div class="tool-list">
-        @for (tool of webdev; track tool.src) {
-          <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
-        }
-      </div>
-    </div>
-    <div class="tool-group">
-      <h2>Video Editing</h2>
-      <div class="tool-list">
-        @for (tool of media; track tool.src) {
-          <app-tool [src]="tool.src" [alt]="tool.alt"></app-tool>
-        }
-      </div>
-    </div>
-  </div>-->
   <div class="tool-belt">
     <div class="belt belt-left">
       <div class="belt-track">
         @for (_ of [0, 0, 0]; track $index) {
-          @for (tool of gamedev; track tool.src) {
+          @for (tool of mini; track tool.src) {
             <app-tool [source]="tool.src" [alternate]="tool.alt"></app-tool>
           }
         }
@@ -61,7 +35,7 @@
     <div class="belt belt-right">
       <div class="belt-track">
         @for (_ of [0, 0, 0]; track $index) {
-          @for (tool of webdev; track tool.src) {
+          @for (tool of mini2; track tool.src) {
             <app-tool [source]="tool.src" [alternate]="tool.alt"></app-tool>
           }
         }
