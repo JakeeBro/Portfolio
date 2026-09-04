@@ -1,10 +1,10 @@
 .wrapper {
-  margin: 0;
+  margin: 1rem;
   padding: 0;
 }
 
 .content {
-  margin: 0 0 1rem 0;
+  margin: 0;
   padding: 0;
   width: calc(1200px - 2rem);
 
@@ -21,12 +21,12 @@
   }
 
   @media (max-width: 800px) {
-    width: calc(100% - 2rem);
+    width: calc(100%);
   }
 }
 
 .content .title {
-  margin: 2rem 0 0 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -177,9 +177,7 @@ p.error {
 }
 
 @media (max-width: 1080px) {
-  .project {
-    margin-top: 0;
-  }
+
 }
 
 @media (max-width: 800px) {
