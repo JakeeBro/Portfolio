@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectPage, ProjectID, ProjectData } from './project-data'
+import {ProjectPage, ProjectID, IProjectData} from './project-data'
 
 /*interface IProjectData {
   title: string;
@@ -19,7 +19,7 @@ import { ProjectPage, ProjectID, ProjectData } from './project-data'
 export class Project {
 
   id: ProjectID | null = null;
-  project: ProjectData | null = null;
+  project: IProjectData | null = null;
 
   constructor(private activatedRoute: ActivatedRoute) {}
 

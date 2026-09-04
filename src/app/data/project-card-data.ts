@@ -12,7 +12,7 @@ export interface IProjectCard {
 export const featured_projects: IProjectCard[] = [
   {
     id: 'posh-framework',
-    title: 'PoshFramework',
+    title: 'Posh Framework',
     image: 'thumbnails/night-shift.png',
     desc: 'An Unreal Engine 5 Framework Plugin',
     icon: 'icons/unreal-engine.svg',
@@ -87,6 +87,14 @@ export const projects: IProjectCard[] = [
     icon: 'icons/spring.svg',
     toolID: 'ng',
   },
+  {
+    id: 'portfolio',
+    title: 'Portfolio',
+    image: 'profile.jpg',
+    desc: 'YOU 🫵 ARE HERE 📍',
+    icon: 'icons/angular.svg',
+    toolID: 'ng'
+  }
 ]
 
 // ###########

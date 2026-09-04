@@ -1,28 +1,36 @@
-<section class="project">
+<section class="wrapper">
   @if (project?.banner && project?.title) {
     <img class="banner" src="{{project?.banner}}" alt="{{project?.title}}">
   }
 
-  <div class="content-container">
+  <div class="content">
     <h1>{{project?.title}}</h1>
 
-    @if (project?.link) {
-      <div class="info-container">
-        <a class="info-link" href="{{project?.link}}">Site Link</a>
-      </div>
-    }
-
-    <div class="info-container">
-      <p class="text-block" [innerHTML]="project?.desc"></p>
-    </div>
-
     @for (section of project?.sections; track section) {
-      <div class="info-container">
-        @if (section?.image != '') {
-          <img class="image-block" src="{{section.image}}" alt="{{section.image}}">
+      @if (section?.header) {
+        @if (section?.link && !section?.linkError) {
+          <a class="section-link" href="{{ section.link }}">
+            <h1 class="section-header">{{ section.header }}&#x2197;</h1>
+          </a>
         }
-        @if (section?.text != '') {
-          <p class="text-block" [innerHTML]="section.text"></p>
+        @else if (section?.linkError) {
+          <div class="section-link">
+            <h1 class="section-header error">LINK DOWN</h1>
+            <p class="error">{{ section?.errorMessage }}</p>
+          </div>
+        }
+        @else {
+          <h1 class="section-header">{{ section.header }}</h1>
+        }
+      }
+      <div class="info info-section-flex">
+        @if (section?.text) {
+          <div class="info-section-details">
+            <p class="section-text" [innerHTML]="section.text"></p>
+          </div>
+        }
+        @if (section?.image) {
+          <img class="section-image" src="{{section.image}}" alt="{{section.image}}">
         }
       </div>
     }
