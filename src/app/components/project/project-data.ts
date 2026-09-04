@@ -261,13 +261,15 @@ export const ProjectPage = {
           'when it was removed from the App Store and Google Play. I have searched for years for alternate versions to play instead, ' +
           'but none of them have the same signature feel of the original Flappy Birds physics. ' +
           '<br><br>Until now. <br><br>I found a research paper online which calculated the exact formula for the original Flappy Birds jumping, and I ' +
-          'implemented it in this game. '
+          'implemented that formula in this project. '
       },
       {
         'header': 'FEATURES',
-        'text': 'The game is mostly on par with the features of the original so far, besides leaderboards and score medals. ' +
+        'text': 'The game includes most of the features from the original so far, besides leaderboards and score medals. ' +
           'In the future, I would like to add customization and difficulty settings, as well as implement the very specific obstacle spawning logic ' +
-          'from the original game. '
+          'from the original game. ' +
+          '<br><br>As one might expect, the pipes in Flappy Bird spawn in a random order. However, from my many hours of playing (high score: 1051), I can tell you that they are not entirely random. ' +
+          'The pipes spawn in patterns of 4. These patterns are then strung together randomly. This is the next feature I plan to add to emulate the original game more faithfully. '
       }
     ]
   },
