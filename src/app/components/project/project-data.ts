@@ -326,8 +326,7 @@ export const ProjectPage = {
           '<br>Inventory System' +
           '<br>Damage System' +
           '<br>Status Effects' +
-          '<br>Gameplay Ability System Extensions' +
-          '<br>Multiplayer Utilities'
+          '<br>Gameplay Ability System Extensions'
       }
     ]
   }
