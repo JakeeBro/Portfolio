@@ -11,7 +11,12 @@
         @if (section?.header) {
           @if (section?.link && !section?.linkError) {
             <a class="section-link" href="{{ section.link }}">
-              <h1 class="section-header">{{ section.header }}&#x2197;</h1>
+              <h1 class="section-header">
+                {{ section.header }}
+                <span class="material-symbols-outlined external-icon">
+      open_in_new
+    </span>
+              </h1>
             </a>
           }
           @else if (section?.linkError) {

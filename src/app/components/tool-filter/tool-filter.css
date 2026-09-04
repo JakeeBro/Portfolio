@@ -23,8 +23,14 @@
   }
 }
 
-.content:hover {
-  cursor: pointer;
+@media (hover: hover) {
+  .content:hover {
+    cursor: pointer;
+    border: 2px solid gold;
+  }
+}
+
+.content:active {
   border: 2px solid gold;
 }
 
