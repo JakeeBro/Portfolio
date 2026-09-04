@@ -12,7 +12,13 @@
   box-sizing: border-box;
 }
 
-.content:hover {
+@media (hover: hover) {
+  .content:hover {
+    cursor: pointer;
+    border: 2px solid gold;
+  }
+}
+
+.content:active {
   border: 2px solid gold;
-  cursor: pointer;
 }
