@@ -1,3 +1,8 @@
+export interface IHubLink {
+  title: string;
+  link: string;
+}
+
 export interface IProjectSection {
   header?: string;
   link?: string;
@@ -5,6 +10,8 @@ export interface IProjectSection {
   errorMessage?: string;
   image?: string;
   text?: string;
+  hubSection?: boolean;
+  hubLinks?: IHubLink[];
 }
 
 export interface IProjectData {
@@ -272,17 +279,125 @@ export const ProjectPage = {
     'sections': [
       {
         'text': 'Posh Framework grew out of a recurring problem across my Unreal Engine projects. ' +
-          'I always found myself copying implementations from older projects, recreating systems from scratch, ' +
-          'or manually updating older projects when I improved a system in a newer one. ' +
-          'Rather than maintaining separate implementations of the same functionality across multiple projects, ' +
-          'I began moving common systems into a reusable Unreal Engine plugin. ' +
-          'This allows improvements to shared functionality to be developed in one place and used across projects, ' +
-          'while game-specific projects can extend the framework where their requirements are different. '
+          'As I made more games and prototypes, I kept finding myself remaking systems I had already created before, ' +
+          'or going back to older projects to update them with improvements I made elsewhere. ' +
+          '<br><br>I didn\'t want to keep doing that. So, I made a plugin, and I started adding features to it over time as I made stuff. ' +
+          '<br><br>First it began with a custom player pawn and player controller. Then I added an interaction system. ' +
+          'And an item system. And an inventory. And I just kept going. ' +
+          '<br><br>Whenever I add a new feature, I try to make it modular, reusable, and easy to extend. ' +
+          'It\'s far from complete, but it already saves me a lot of time whenever a new game idea inevitably distracts me from what I was already working on. '
       },
+      {
+        'header': 'FEATURES',
+        'hubSection': true,
+        'hubLinks': [
+          {
+            'title': 'PLAYER',
+            'link': 'player',
+          },
+          {
+            'title': 'INTERACTION',
+            'link': 'interaction-system',
+          },
+          {
+            'title': 'ITEMS',
+            'link': 'item-system',
+          },
+          {
+            'title': 'INVENTORY',
+            'link': 'inventory-system',
+          },
+          {
+            'title': 'GAS',
+            'link': 'gas',
+          },
+          {
+            'title': 'TERRAIN',
+            'link': 'terrain-gen',
+          },
+        ]
+      },
+      {
+        'header': 'TOPIC GUIDE (WRITING REFERENCE - IGNORE)',
+        'text': 'Custom Player Pawn' +
+          '<br>Custom Player Controller' +
+          '<br>Interaction System' +
+          '<br>Item System' +
+          '<br>Inventory System' +
+          '<br>Damage System' +
+          '<br>Status Effects' +
+          '<br>Gameplay Ability System Extensions' +
+          '<br>Multiplayer Utilities'
+      }
     ]
   }
 } satisfies Record<string, IProjectData>;
 
 export type ProjectID = keyof typeof ProjectPage;
+
+export const FeaturePage = {
+  'player': {
+    'title': 'PLAYER',
+    'tech': ['Unreal Engine'],
+    'sections': [
+      {
+        'header': 'OVERVIEW',
+        'text': 'The Player Pawn'
+      }
+    ]
+  },
+  'interaction-system': {
+    'title': 'INTERACTION',
+    'tech': ['Unreal Engine'],
+    'sections': [
+      {
+        'header': 'OVERVIEW',
+        'text': 'Interaction System'
+      }
+    ]
+  },
+  'item-system': {
+    'title': 'ITEMS',
+    'tech': ['Unreal Engine'],
+    'sections': [
+      {
+        'header': 'OVERVIEW',
+        'text': 'Item System'
+      }
+    ]
+  },
+  'inventory-system': {
+    'title': 'INVENTORY',
+    'tech': ['Unreal Engine'],
+    'sections': [
+      {
+        'header': 'OVERVIEW',
+        'text': 'Inventory System'
+      }
+    ]
+  },
+  'gas': {
+    'title': 'GAMEPLAY ABILITY SYSTEM',
+    'tech': ['Unreal Engine'],
+    'sections': [
+      {
+        'header': 'OVERVIEW',
+        'text': 'Gameplay Ability System'
+      }
+    ]
+  },
+  'terrain-gen': {
+    'title': 'TERRAIN GENERATION',
+    'tech': ['Unreal Engine'],
+    'sections': [
+      {
+        'header': 'OVERVIEW',
+        'text': 'Terrain Generation System'
+      }
+    ]
+  },
+} satisfies Record<string, IProjectData>
+
+export type FeatureID = keyof typeof FeaturePage;
 
 // export type ProjectData = (typeof ProjectPage)[ProjectID];

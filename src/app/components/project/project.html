@@ -7,30 +7,42 @@
     <h1>{{project?.title}}</h1>
 
     @for (section of project?.sections; track section) {
-      @if (section?.header) {
-        @if (section?.link && !section?.linkError) {
-          <a class="section-link" href="{{ section.link }}">
-            <h1 class="section-header">{{ section.header }}&#x2197;</h1>
-          </a>
+      @if (!section?.hubSection) {
+        @if (section?.header) {
+          @if (section?.link && !section?.linkError) {
+            <a class="section-link" href="{{ section.link }}">
+              <h1 class="section-header">{{ section.header }}&#x2197;</h1>
+            </a>
+          }
+          @else if (section?.linkError) {
+            <div class="section-link">
+              <h1 class="section-header error">LINK DOWN</h1>
+              <p class="error">{{ section?.errorMessage }}</p>
+            </div>
+          }
+          @else {
+            <h1 class="section-header">{{ section.header }}</h1>
+          }
         }
-        @else if (section?.linkError) {
-          <div class="section-link">
-            <h1 class="section-header error">LINK DOWN</h1>
-            <p class="error">{{ section?.errorMessage }}</p>
-          </div>
-        }
-        @else {
+        <div class="section">
+          @if (section?.text) {
+            <p class="section-text" [innerHTML]="section.text"></p>
+          }
+          @if (section?.image) {
+            <img class="section-image" src="{{section.image}}" alt="{{section.image}}">
+          }
+        </div>
+      }
+      @else {
+        @if (section?.header) {
           <h1 class="section-header">{{ section.header }}</h1>
         }
+        <div class="hub-section">
+          @for (feature of section?.hubLinks; track feature.title) {
+            <app-feature-link [featureLink]="feature"/>
+          }
+        </div>
       }
-      <div class="info info-section-flex">
-        @if (section?.text) {
-          <p class="section-text" [innerHTML]="section.text"></p>
-        }
-        @if (section?.image) {
-          <img class="section-image" src="{{section.image}}" alt="{{section.image}}">
-        }
-      </div>
     }
   </div>
 </section>

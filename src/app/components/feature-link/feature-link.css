@@ -1,0 +1,18 @@
+.wrapper {
+
+}
+
+.content {
+  padding: 0.5rem;
+
+  background-color: var(--site-background-light);
+
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.content:hover {
+  border: 2px solid gold;
+  cursor: pointer;
+}
