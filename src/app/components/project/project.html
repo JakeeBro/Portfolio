@@ -25,9 +25,7 @@
       }
       <div class="info info-section-flex">
         @if (section?.text) {
-          <div class="info-section-details">
-            <p class="section-text" [innerHTML]="section.text"></p>
-          </div>
+          <p class="section-text" [innerHTML]="section.text"></p>
         }
         @if (section?.image) {
           <img class="section-image" src="{{section.image}}" alt="{{section.image}}">
