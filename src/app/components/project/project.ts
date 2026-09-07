@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 import { ProjectPage, ProjectID, IProjectData, FeaturePage, FeatureID } from './project-data'
 import { FeatureLink } from '../feature-link/feature-link';
 
@@ -7,6 +7,7 @@ import { FeatureLink } from '../feature-link/feature-link';
   selector: 'app-project',
   imports: [
     FeatureLink,
+    RouterLink,
   ],
   templateUrl: './project.html',
   styleUrl: './project.css',

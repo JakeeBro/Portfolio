@@ -7,6 +7,7 @@ export interface IHubLink {
 export interface IProjectSection {
   header?: string;
   link?: string;
+  linkInternal?: boolean;
   linkError?: boolean;
   errorMessage?: string;
   image?: string;
@@ -182,6 +183,8 @@ export const ProjectPage = {
       },
       {
         'header': 'TERRAIN GENERATION',
+        'link': '/projects/posh-framework/terrain-gen',
+        'linkInternal': true,
         'image': 'media/hunt-01-terrain.png',
         'text': 'The terrain is randomly generated and created using a Procedural Mesh Component. ' +
           'The gap seen in the image is a result of two calculations: one higher resolution area for the player to explore, and ' +

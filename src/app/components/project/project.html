@@ -10,14 +10,21 @@
       @if (!section?.hubSection) {
         @if (section?.header) {
           @if (section?.link && !section?.linkError) {
-            <a class="section-link" href="{{ section.link }}">
-              <h1 class="section-header">
-                {{ section.header }}
-                <span class="material-symbols-outlined external-icon">
-      open_in_new
-    </span>
-              </h1>
-            </a>
+            @if (section?.linkInternal) {
+              <a class="section-link" [routerLink]="section.link">
+                <h1 class="section-header">
+                  {{ section.header }}
+                  <span class="material-symbols-outlined external-icon">article_shortcut</span>
+                </h1>
+              </a>
+            } @else {
+              <a class="section-link" href="{{ section.link }}" target="_blank">
+                <h1 class="section-header">
+                  {{ section.header }}
+                  <span class="material-symbols-outlined external-icon">open_in_new</span>
+                </h1>
+              </a>
+            }
           }
           @else if (section?.linkError) {
             <div class="section-link">
