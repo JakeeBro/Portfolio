@@ -449,6 +449,40 @@ export const FeaturePage = {
           'As long as an object implements the interface, it can immediately be used as an Interactable. '
       },
       {
+        'header': 'THE MULTIPLAYER HANDSHAKE',
+        'text': 'After I made the initial version of the Interaction System, I wanted to make it multiplayer compatible. ' +
+          'I have many ideas for multiplayer games, and I didn\'t want to have to redesign the system later to support it. ' +
+          'One thing I wanted to guarantee is interactables owning their logic, not the Player. During testing, I tried marking ' +
+          'each actor as replicated, using a replicated variable for state, and using a RepNotify function to sync state between clients. ' +
+          'None of these tests worked on their own. Only when these steps were combined with the Player Controller handling the interaction state and logic did the interaction event work properly. ' +
+          'This issue is likely something related to how the Server/Client authority model works in Unreal Engine, ' +
+          'but I don\'t know enough about it to say definitively. '
+      },
+      {
+        'text': 'In this initial testing version of my replicated interaction system, the Interactable Object needed to return data to the Player Controller and let it ' +
+          'decide what happens to the Object. This worked, however, I did not like this, because it meant having to create entire sections of code within the Player Controller for every object type. ' +
+          'This would have inflated the Controller for each game, made everything too dependent on each other, and been way more work than I was willing to do for such a system. '
+      },
+      {
+        'text': 'My solution to this problem was to create an Interface that can be implemented on any Controller called \'ControllerAuthority\', which can be called from the Interactable to request ' +
+          'authorization from the Controller. The Interaction System runs through a series of 5 functions, mostly running on the Interactable Object itself before calling the appropriate ' +
+          'interaction event. The event that the Player Pawn executes on the Interactable Object during the interaction is the first step. This first function handles ' +
+          'the Host Only restriction, which is necessary for interactions involving map transitions using Steam Multiplayer. For whatever reason, initiating a map transition as a Client disconnected them from the game. ' +
+          'So I made that boolean so Clients wouldn\'t accidentally remove themselves. '
+      },
+      {
+        'text': 'The second step in this process gets a reference to the Player Pawn and its Controller, and ensures that the ControllerAuthority exists. ' +
+          'If successful, the interaction is temporarily passed to the Controller, which handles the third step. ' +
+          'During this third step, the ControllerAuthority event then just simply calls the interaction event on the Interactable Object. ' +
+          'This call counts as the Controller running the code, even though the logic lives on the Interactable Object. The fourth step is a routing step, ' +
+          'determining which interaction event to run based on the input, either Primary or Secondary. The fifth and final step is the actual ' +
+          'execution of the interaction event. '
+      },
+      {
+        'text': 'This setup ensures that every single Interactable Object will run its logic in a multiplayer environment automatically. The only thing a designer must ' +
+          'do differently than creating normal Blueprint logic is to use replicated variables and RepNotify events. '
+      },
+      {
         'header': 'PROBLEMS AND SOLUTIONS',
         'text': 'Throughout the development of this feature, I ran into a couple problems. The first issue was that the Interactable text ' +
           'was being requested every single frame, even when it had not changed, rather than running only when necessary. ' +
