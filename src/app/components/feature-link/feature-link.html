@@ -1,5 +1,8 @@
 <div class="wrapper">
   <div class="content" (click)="goToFeature()">
+    @if (featureLink.image) {
+      <img [src]="featureLink.image" [alt]="featureLink.title"/>
+    }
     <h1 class="title">{{ featureLink.title }}</h1>
   </div>
 </div>

@@ -1,6 +1,7 @@
 export interface IHubLink {
   title: string;
   link: string;
+  image?: string;
 }
 
 export interface IProjectSection {
@@ -311,22 +312,27 @@ export const ProjectPage = {
           {
             'title': 'INTERACTION',
             'link': 'interaction-system',
+            'image': 'media/posh/interaction/InteractionCover.png'
           },
           {
             'title': 'ITEMS',
             'link': 'item-system',
+            'image': 'media/posh/items/ItemsCover.png'
           },
           {
             'title': 'INVENTORY',
             'link': 'inventory-system',
+            'image': 'media/posh/inventory/InventoryCover.png'
           },
           {
             'title': 'GAS',
             'link': 'gas',
+            'image': 'media/posh/gas/GASCover.png'
           },
           {
             'title': 'TERRAIN',
             'link': 'terrain-gen',
+            'image': 'media/posh/terrain/TerrainCover.png'
           },
         ]
       },
