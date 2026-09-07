@@ -3,13 +3,22 @@
 }
 
 .content {
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 
   background-color: var(--site-background-light);
 
   border: 2px solid transparent;
   border-radius: 0.5rem;
   box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  padding: 0.25rem 0;
+
+  font-size: 2rem;
+  line-height: 1;
+  text-align: left;
 }
 
 @media (hover: hover) {

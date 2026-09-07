@@ -280,14 +280,25 @@ export const ProjectPage = {
     'tech': ['Unreal Engine'],
     'sections': [
       {
-        'text': 'Posh Framework grew out of a recurring problem across my Unreal Engine projects. ' +
-          'As I made more games and prototypes, I kept finding myself remaking systems I had already created before, ' +
-          'or going back to older projects to update them with improvements I made elsewhere. ' +
-          '<br><br>I didn\'t want to keep doing that. So, I made a plugin, and I started adding features to it over time as I made stuff. ' +
-          '<br><br>First it began with a custom player pawn and player controller. Then I added an interaction system. ' +
-          'And an item system. And an inventory. And I just kept going. ' +
-          '<br><br>Whenever I add a new feature, I try to make it modular, reusable, and easy to extend. ' +
-          'It\'s far from complete, but it already saves me a lot of time whenever a new game idea inevitably distracts me from what I was already working on. '
+        'text': 'The Posh Framework is a reusable Unreal Engine 5 plugin that provides common gameplay mechanics. ' +
+          'I made it because as I made more games and prototypes, I kept finding myself remaking systems I had already created before, ' +
+          'or going back to older projects to update them with improvements I made elsewhere. Also I just wanted to learn how to make a plugin. ' +
+          'Now, whenever I make a new project, I immediately have mechanics that most games need, such as a player, items, or an inventory. ' +
+          'Additionally, because it is shared between projects, when I improve an implementation in one project, the others benefit as well. '
+      },
+      {
+        'text': 'A major goal of the framework is reducing the amount of code required to implement common gameplay features. ' +
+          'Whenever possible, systems are designed so that new content can be created through inheritance, interfaces, data assets, or Blueprint ' +
+          'configuration rather than modifying existing gameplay code. '
+      },
+      {
+        'text': 'As of now, the framework is built for personal use only. Long-term, I have thought about the possibility of releasing the plugin either as a whole ' +
+          'or as standalone mechanic plugins, but that would require a lot of refactoring. Additionally, this would potentially require time set aside to handle issues reported with it, which ' +
+          'I do not have right now. '
+      },
+      {
+        'text': 'Originally I called this plugin the \'Player System\' because it was supposed to be only that, and I wanted to make distinct plugins for the other mechanics. ' +
+          'As I kept adding features I just decided to keep it all in one place because it made it easier to import it into projects and keep everything updated together. '
       },
       {
         'header': 'FEATURES',
@@ -328,7 +339,8 @@ export const ProjectPage = {
           '<br>Inventory System' +
           '<br>Damage System' +
           '<br>Status Effects' +
-          '<br>Gameplay Ability System Extensions'
+          '<br>Gameplay Ability System Extensions' +
+          '<br>Terrain Generation System'
       }
     ]
   }
@@ -352,9 +364,108 @@ export const FeaturePage = {
     'tech': ['Unreal Engine'],
     'sections': [
       {
-        'header': 'OVERVIEW',
-        'text': 'Interaction System'
-      }
+        'text': 'The Interaction System is the oldest part of the framework. I first wrote the initial implementation in 2022, ' +
+          'but it has seen small additions over time. Functionally, it has gotten easier to use while providing more mechanics for the developer to utilize. ',
+      },
+      {
+        'header': 'INITIAL VERSION',
+        'text': 'The original version of this system involved two functions. On Tick, the Player Pawn would get the Interaction Component and call its Trace() function. ' +
+          'This function took several parameters, including the trace channel to use for interactable detection, the distance to trace, a camera to trace from, and a boolean to turn it on or off. ' +
+          'The Trace function returned an Actor reference, which would be stored on the Player Pawn and passed to a function called TryInteract(), ' +
+          'responsible for attempting the interaction when an input event occurred. ',
+      },
+      {
+        'text': 'I originally designed the system this way because I wanted a simple function that could be called from anywhere ' +
+          'while allowing the caller to provide whatever values it needed. Over time, I realized this flexibility was mostly ' +
+          'unnecessary and actually made the system more difficult to use. Most of these values would never need to be set dynamically per function call, ' +
+          'so I eventually turned them into properties on the component itself. This reduced the amount of setup and made the ' +
+          'component easier to work with while still providing the same functionality.',
+      },
+      {
+        'text': 'An Interactable Object was defined using an interface. This allowed any Actor to become interactable without ' +
+          'requiring a specific inheritance hierarchy. Before the Player Pawn would store the hit actor, ' +
+          'the Interaction Component verified that it implemented this interface. The interface provided events that the Player Pawn ' +
+          'could call to run the interaction logic. ',
+      },
+      {
+        'header': 'CURRENT VERSION',
+        'image': 'media/posh/interaction/InteractionComponent.png',
+        'text': 'The current version of the interaction system still utilizes a mostly property based approach. ' +
+          'It still takes a camera input parameter, but the on/off toggle, distance, and trace channel are all properties. ' +
+          'Additionally there is a debug toggle that will output some information about the interaction to the log when enabled. '
+      },
+      {
+        'image': 'media/posh/interaction/InteractionTrace.png',
+        'text': 'The Player Pawn still calls the Trace() function on Tick, but it no longer has an output. The Interaction Component itself ' +
+          'stores the Actor, and the Player then uses that reference to try to initiate the interaction on the object. Because of this simplification, ' +
+          'the Trace() function is easier to use in both C++ and Blueprints, relying on only a single function call with easily adjustable properties in the Unreal Editor. ',
+      },
+      {
+        'image': 'media/posh/interaction/InteractionSettings.png',
+        'text': 'Interactable Objects are now built around both an interface and an abstract base Actor. The interface defines the ' +
+          'contract used by the Interaction Component, while the base Actor provides a default implementation of the functionality ' +
+          'most Interactable Objects require. ' +
+          'Because of this, most Interactable Objects can be created by simply inheriting from the provided base classes rather than reimplementing ' +
+          'interaction logic from scratch. This can be done in C++ or in the Editor, as I have made all the necessary classes and functions Blueprint compatible. '
+      },
+      {
+        'image': 'media/posh/interaction/InteractableData.png',
+        'text': 'The abstract base Actor exists because I needed a place to store the name of the object. ' +
+          'This class has since grown to also include interaction type routing, multiplayer support, collision configuration, and delegates.',
+      },
+      {
+        'text': 'The Interactable interface is also responsible for providing the interaction paths for each object, ' +
+          'including Primary and Secondary Interaction events, as well as a replication-related event for multiplayer. ' +
+          'The base Actor implements these events, while the Player Pawn calls them using the Interactable Object reference ' +
+          'stored on the Interaction Component. '
+      },
+      {
+        'text': 'Primary and Secondary Interaction are functionally identical paths distinguished only by name. Either one can ' +
+          'be assigned to either input type, Press or Hold. When the Player Pawn calls an Interaction event, the base Actor routes it ' +
+          'to the correct path based on which input triggered it. This lets designers swap interaction functionality between input types simply ' +
+          'in the Editor, as well as letting Interactable Objects support multiple input events.'
+      },
+      {
+        'header': 'THE INTERACTION FLOW',
+        'text': 'When Trace() is called, the component performs a Line Trace using the specified Trace Channel. ' +
+          'Any object configured to Block that given channel will be seen by it when the Line Trace hits it. ' +
+          'After hitting an object, if the object implements the Interactable interface, this object will be stored on ' +
+          'the Interaction Component. From there, the Player Pawn can access the Interactable Object during an Interaction input event. ' +
+          'Storing the object in such a way removes the need to keep the Interaction function within the same function scope, ' +
+          'as well as making the Trace() call simpler to use. '
+      },
+      {
+        'text': 'When an Interaction event occurs, the Player Pawn requests the currently targeted object from the Interaction Component. ' +
+          'If there is a valid Interactable Object, the appropriate interaction event is executed through the Interactable interface. ' +
+          'Because every Interactable implements the same interface, the Player Pawn does not need to know what type of object ' +
+          'is being interacted with. Whether the object is a door, an item pickup, or a quest objective, the interaction logic never changes. ' +
+          'Another benefit of this architecture is that new interactable objects can be created without ever touching code or modifying the Player or Interaction Component. ' +
+          'As long as an object implements the interface, it can immediately be used as an Interactable. '
+      },
+      {
+        'header': 'PROBLEMS AND SOLUTIONS',
+        'text': 'Throughout the development of this feature, I ran into a couple problems. The first issue was that the Interactable text ' +
+          'was being requested every single frame, even when it had not changed, rather than running only when necessary. ' +
+          'The second issue appeared when two Interactable Objects were touching. Looking between them without a gap would not update the text or the stored Actor ' +
+          'because it never deleted the old Interactable from its cache. '
+      },
+      {
+        'text': 'I solved the second problem first. I simply added a boolean check to see if the stored Actor was equal to the Actor that the ' +
+          'Interaction Component was detecting with the Line Trace. If not, then I would swap the stored Actor. '
+      },
+      {
+        'text': 'The solution to the second problem then gave me an easy way to solve the first problem: delegates. I created two new delegates, OnBeginInteractionText and OnEndInteractionText. ' +
+          'Within that Actor change check, I call the appropriate delegate and pass the interaction text value. ' +
+          'These events can then be hooked into by the UI, only firing the text update when necessary. '
+      },
+      {
+        'header': 'IN THE FUTURE',
+        'text': 'The next planned feature for the Interaction System is an Editor extensible system that lets designers ' +
+          'define verbs for interactions, such as \'Search\' or \'Use\', rather than defaulting to the object name. ' +
+          'This will allow Interactable Objects to support custom ' +
+          'display text while allowing easy modification of several assets at once. I plan to use Data Assets, which are shared references to a single piece of data, to accomplish this. ' +
+          'Each Interactable Object would store a reference to one, along with a function to combine the name and verb into the interaction text. '
+      },
     ]
   },
   'item-system': {
