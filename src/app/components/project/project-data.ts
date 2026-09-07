@@ -513,9 +513,51 @@ export const FeaturePage = {
     'tech': ['Unreal Engine'],
     'sections': [
       {
-        'header': 'OVERVIEW',
-        'text': 'Item System'
-      }
+        'text': 'Items in the framework are a subclass of the Interactable Base Object, inheriting all of its interaction functionality ' +
+          'while adding an item interface that defines three usage events: Primary, Secondary, and Tertiary Use. '
+      },
+      {
+        'header': 'CONTINUOUS STATE',
+        'image': 'media/posh/items/ItemData.png',
+        'text': 'The main feature of this Item System ' +
+          'is that every item is the exact same object regardless of whether it is in your hand or on the floor in the world, there is no separate item pickup ' +
+          'object. The reason I did this is because it is more immersive to be able to use item functions without necessarily equipping them, such as toggling a ' +
+          'flashlight on or off without picking it up. The tradeoff with this functionality is that because the interaction interface only exposes two events, and ' +
+          'the item interface exposes three, you only really have one event to work with when adding item functionality to an interaction event for use without equipping. ' +
+          'This is because the other interaction event needs to be used for storing or equipping the item. '
+      },
+      {
+        'text': 'Because each object is the same no matter where it is being represented, I needed a way to ensure that item state was ' +
+          'carried through interaction events. To use the flashlight example again, if I turn the flashlight on, and then pick it up, it should stay on. ' +
+          'To accomplish this, I use the same instanced data object approach as my interactable data. I inherit that class to create an item data class. ' +
+          'This class then carries all of the information that an interactable would provide, like the name of the object, while adding in item specific variables as well, ' +
+          'while still being able to be stored in an inventory with other items because of inheritance. '
+      },
+      {
+        'text': 'These item specific variables are not created using Blueprint classes. They do not exist as assets. The data object is instanced, ' +
+          'which means it lives, is created, and is edited exclusively within the object details panel. ' +
+          'This simplifies asset creation because all of an item\'s configuration exists in one place. There are no separate Blueprint classes to edit. ' +
+          'An item\'s data will only ever be separated from itself in game, so there is no need to require a workflow involving separate data assets. '
+      },
+      {
+        'header': 'PROBLEMS AND SOLUTIONS',
+        'text': 'An earlier version of this item system, built in 2022, took a different approach to data and state: the item data lived in a struct, while the item state ' +
+          '(anything that needed to persist, like a flashlight\'s on/off status) lived in a separate object entirely. Because structs cannot safely inherit ' +
+          'from one another in Unreal Engine, and state needed to exist independently as its own persistent object, the actor, its properties struct, and its state object, ' +
+          'were never completely unified. The inventory instead tracked several parallel arrays, one for item classes, one for item properties, one for item counts, and one for ' +
+          'item states, which were all kept connected together using a single index stored on the item properties struct. '
+      },
+      {
+        'text': 'This worked, but it was very fragile. Removing an item required manually shifting every higher index item\'s stored state to account ' +
+          'for the shrinking array. Any operation on one array that wasn\'t perfectly mirrored across the other three risked desyncing the items from ' +
+          'their state. '
+      },
+      {
+        'text': 'The current system solves this issue by combining everything into a single, instanced, inheritable UObject. ' +
+          'Because the interactable data base object class supports proper inheritance (something the struct couldn\'t offer), ' +
+          'item-specific data can extend it directly, carrying both its configuration and its persistent state in one object, ' +
+          'with no external array, no manual index adjustments, and no possibility of desync between an item and its state. '
+      },
     ]
   },
   'inventory-system': {
