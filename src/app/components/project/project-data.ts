@@ -568,9 +568,41 @@ export const FeaturePage = {
     'tech': ['Unreal Engine'],
     'sections': [
       {
-        'header': 'OVERVIEW',
-        'text': 'Inventory System'
-      }
+        'text': 'The Inventory System is a very barebones extensible template for creating simple storage. ' +
+          'It is intentionally not very in depth, because every game has different requirements for inventory storage, ' +
+          'and I did not want to try to account for every possibility. '
+      },
+      {
+        'header': 'ORIGINAL VERSION',
+        'image': 'media/posh/inventory/InventoryOld.png',
+        'text': 'The original Inventory implementation from 2022 stored item data across many parallel arrays. ' +
+          'It was also responsible for the spawning items into the player\'s hands, placing them in the world, ' +
+          'managing the active item index and scrolling input, and handling state for items that needed it. ' +
+          'This worked for the project I made it for, but it was very strict and inflexible. '
+      },
+      {
+        'header': 'CURRENT VERSION',
+        'image': 'media/posh/inventory/InventoryNew.png',
+        'text': 'The new version of the Inventory System significantly simplifies the architecture. ' +
+          'Items are stored as a singular data object, and the inventory provides a virtual RouteItem() function ' +
+          'for the developer to override, letting you decide how individual items are stored in your game. ' +
+          'The base class does basically nothing, and only exists to be overwritten. ' +
+          'It is intended to be used as a template, while the game defines how the items and inventory interact. '
+      },
+      {
+        'text': 'In the new version, the game-specific subclass that the developer makes is where most of the old logic should live. ' +
+          'For example, in my current project, I override RouteItem() to insert items into different inventories ' +
+          'based on the item type. This is fully extensible and only limited by the structure of your RouteItem() implementation. '
+      },
+      {
+        'header': 'IN THE FUTURE',
+        'text': 'The new version does not support item stacks, which is something I plan to add soon. ' +
+          'Also, the overall structure is still not perfect, providing a singular array for storage, while some games may need more, ' +
+          'and currently rely on creating new arrays in their subclass. This works but there may be a better way, which I am trying to figure out. ' +
+          'I want to think of a way to convert it to a more hands-off, dynamic, but still structured architecture. ' +
+          'The solution might be to remove storage altogether and convert it into an interface entirely, providing only overridable functions. ' +
+          'Or it could be to store it as an instanced object rather than a component. Or to have configurable sub-inventory objects on a primary inventory. '
+      },
     ]
   },
   'gas': {
