@@ -13,7 +13,7 @@ export const featured_projects: IProjectCard[] = [
   {
     id: 'posh-framework',
     title: 'Posh Framework',
-    image: 'thumbnails/night-shift.png',
+    image: 'thumbnails/PoshFramework.png',
     desc: 'An Unreal Engine 5 Framework Plugin',
     icon: 'icons/unreal-engine.svg',
     toolID: 'ue',

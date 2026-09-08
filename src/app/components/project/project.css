@@ -147,3 +147,7 @@ p.error {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+.test-span {
+  color: green;
+}

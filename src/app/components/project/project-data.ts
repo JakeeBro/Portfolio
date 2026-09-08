@@ -37,6 +37,27 @@ export const ProjectPage = {
           'With it, you can hover over a country in the world and it will tell you information ' +
           'such as the country name, its capital city, the region of the world it is in, and other information. ' +
           'I did not optimize this for mobile, so I apologize if you try to view it on your phone, it works best on desktop.'
+      },
+      {
+        'header': 'HOW IT WORKS',
+        'image': '/media/world-map/WorldMapInfo.png',
+        'text': 'The SVG map used comes pre-segmented into individual paths, one per country, each already labeled with an ID ' +
+          'matching the World Bank API\'s country codes. My code just listens for mouse-over events on the SVG container. ' +
+          'When the cursor enters a path, I read that path\'s ID directly and request that country\'s data from the ' +
+          'World Bank API, which returns XML that I parse manually for the fields I want to display. ' +
+          'The trick that makes this simple is entirely in the SVG asset itself being pre-labeled correctly. I did not build the SVG segmentation, ' +
+          'but the hover-to-lookup logic connecting it to the API is mine. '
+      },
+      {
+        'text': 'The World Bank API is a little bit slow, so the first time you hover over a country it might take a bit to update. ' +
+          'It totally looks like it\'s broken but it just takes a little time. '
+      },
+      {
+        'header': 'IN THE FUTURE',
+        'image': '/media/world-map/WorldMapMobile.png',
+        'text': 'This was never optimized for mobile. The map is small on smaller screens with no way to zoom in, which makes it ' +
+          'basically unusable on a phone. If I revisited this, I would look into pinch-to-zoom or a pan/zoom library for the SVG ' +
+          'so it holds up on smaller viewports, rather than just shrinking the whole map down. '
       }
     ]
   },
@@ -49,14 +70,29 @@ export const ProjectPage = {
       {
         'header': 'PLAY IN YOUR BROWSER',
         'link': 'https://jakeebro.github.io/ng-higher-lower/',
+        'image': '/media/higher-lower/HLGame.png',
         'text': 'This website was originally made as an interview project, but I decided to clean it up and convert it to Angular ' +
           'as a form of practice. ' +
-          '<br><br>' +
           'It is a simple game where you must guess a random number within a range. You can choose the range yourself, and even limit the ' +
           'amount of guesses you can take. ' +
-          '<br><br>' +
           'I also added a set of predefined themes for you to choose from.',
-      }
+      },
+      {
+        'header': 'WHO ASKED FOR THIS?',
+        'text': 'The original version of this game was a take-home assignment for an interview process, built with plain HTML, ' +
+          'no styling beyond black and white. I completed it and moved on to the next phase of interviews, but the company ' +
+          'restructured partway through the process and cancelled all open applications, mine included. Rather than let the project ' +
+          'go to waste, I rebuilt it from scratch in Angular as practice. '
+      },
+      {
+        'header': 'WHAT DID I IMPROVE?',
+        'image': '/media/higher-lower/HLThemes.png',
+        'text': 'The rewrite is not just a port, it is a full redesign. The original only supported a fixed range, infinite guesses, and had no styling to speak of. ' +
+          'The Angular version adds custom guess ranges, a configurable guess limit, automatic focus switching between input fields as you type, ' +
+          'a set of custom themes saved to the browser cache so your preference persists between visits, and an entirely new frosted-glass ' +
+          'visual design that I built myself. Themes are handled by a dedicated Angular service that swaps a set of CSS variables, ' +
+          'so the whole site restyles from one place rather than needing per-component theme logic. '
+      },
     ]
   },
 
@@ -68,11 +104,18 @@ export const ProjectPage = {
       {
         'header': 'TRY IT IN YOUR BROWSER',
         'link': 'https://jakeebro.github.io/boxes/',
-        'linkError': true,
-        'errorMessage': 'I am not currently paying for Railway',
         'text': 'This website was a way for me to practice making a fully deployed CRUD app. It is extremely simple. I made ' +
           'it using Angular and Spring Boot. The front end is hosted on GitHub pages like all my other sites, and the backend is ' +
           'hosted on Railway. ',
+      },
+      {
+        'header': 'WHY SO SIMPLE',
+        'text': 'I don\'t learn well from tutorials, I tend to lose focus and fall asleep watching them. So instead of following one, ' +
+          'I used AI as a guide while building this myself, the same way I later approached my terrain generation system. ' +
+          'The goal was never a feature-rich app, I just wanted to create a full front and backend hosted online: ' +
+          'Angular talking to a real REST API, backed by Spring Boot, actually deployed and reachable, not just running locally. ' +
+          'A \'box\' is deliberately nothing more than a color, a name, and an ID, displayed as a colored div on screen. ' +
+          'You can create, edit, and delete them. And that\'s... it. On purpose. '
       },
       {
         'header': 'FUTURE UPDATES',
@@ -94,15 +137,27 @@ export const ProjectPage = {
         'link': 'https://jakeebro.github.io/ng-taniti/home',
         'text': 'This website was originally made as part of my studies at Western Governor\'s University. ' +
           'It started as standard HTML and CSS, and I decided to remake it using Angular as a way learning the framework. ' +
-          'It is a showcase of a fictional tropical island in the Pacific Ocean named Taniti. ' +
-          '<br><br>' +
-          'I used Firestore for the backend, as it is just a simple fake e-commerce app. ' +
-          'You can \'buy\' fake tickets for activities and \'order\' them through the site. ' +
-          '<br><br>' +
-          'There is a 20 item cart limit, as well as a 5 order account limit. It is all fake, ' +
-          'so please feel free to delete any orders if the limit is reached while you are testing it. ' +
-          '<br><br>' +
-          'It is fully responsive, and features a toggleble dark/light theme. You can find the theme toggle in the profile tab'
+          'It is a showcase of a fictional tropical island in the Pacific Ocean named Taniti. '
+      },
+      {
+        'header': 'UPGRADES!',
+        'image': '/media/taniti/TanitiCart.png',
+        'text': 'The original HTML/CSS version was a fully custom design, not a template, and I kept its overall layout and color scheme ' +
+          'when rebuilding it in Angular. But the original had no e-commerce at all, it was closer to a travel brochure: static pages of ' +
+          'text and images describing an island with some activities the assignment required. There was no cart, no products with prices, ' +
+          'no ordering system, no theme toggle, and it was not mobile responsive. The Angular rebuild adds all of that. '
+      },
+      {
+        'header': 'FAKE ORDERS AND LIMITS',
+        'image': '/media/taniti/TanitiOrder.png',
+        'text': 'Orders are stored in Firestore, each with a generated order ID, a timestamp, the order contents, and the total price. ' +
+          'The 20 item cart limit and 5 order account limit are not arbitrary, they exist specifically so nobody can sit there and ' +
+          'fill a free Firestore project with endless fake orders, since I would like this site to stay up indefinitely without costing me anything. '
+      },
+      {
+        'header': 'THEMES',
+        'text': 'The dark/light toggle uses the exact same CSS-variable-swapping theme service pattern as my Higher Lower project, ' +
+          'just applied with a different set of theme values here. '
       }
     ]
   },
@@ -126,8 +181,43 @@ export const ProjectPage = {
     'sections': [
       {
         'header': 'GO BACK HOME',
-        'link': 'https://jakeebro.github.io/Portfolio/',
+        'link': '/about',
+        'linkInternal': true,
         'text': 'This is a website designed to show off some of my work. This is where you are right now.'
+      },
+      {
+        'header': 'I LEARN BEST WITH MY HANDS',
+        'text': 'I did not watch a single Angular tutorial to build this site. I started building it directly with AI assistance and ' +
+          'asked questions as I went, learning the framework by actually using it rather than following along with someone else\'s project. ' +
+          'It uses standalone components throughout, no NgModules, and no state management library, just data-driven TypeScript files ' +
+          'feeding into templates. It is hosted on GitHub Pages, like the rest of my Angular projects. '
+      },
+      {
+        'header': 'EASY UPDATING',
+        'image': '/media/portfolio/PortfolioData.png',
+        'text': 'Rather than hand-build a new page every time I wanted to add a project or feature, I wanted the site to auto-populate ' +
+          'itself from structured data. The ProjectPage and FeaturePage objects that drive most of this site are exactly that: ' +
+          'each entry is a title and an array of sections, where a section can be plain text, an image, an internal or ' +
+          'external link, or a hub of links to other pages. Adding a new project or a new framework feature is just adding a new entry ' +
+          'to one of these objects, the page itself builds automatically from there. '
+      },
+      {
+        'text': 'I used AI to help me write a PowerShell script that handles the entire deploy process with one command, \'npm run deploy\'. ' +
+          'It commits and backs up whatever is on main, builds the Angular app, copies the build output into a temporary directory outside the repo, duplicates ' +
+          'index.html as 404.html so GitHub Pages can correctly handle Angular\'s client-side routing on a direct page load or refresh, since ' +
+          'apparently that is a problem that I had to solve. ' +
+          'It then switches to the gh-pages branch, wipes it clean except for a small set of files it needs to preserve, copies the fresh build ' +
+          'in, commits, and switches back to main. There is also a forced empty commit pushed right before the branch gets wiped, added after ' +
+          'the site once failed to actually update on GitHub Pages despite a successful deploy, because the site wouldn\'t update unless I did that. ' +
+          'Again, apparently a problem I had to solve. ' +
+          'That empty commit guarantees GitHub sees an actual change and refreshes the deployed site. '
+      },
+      {
+        'header': 'RECENT REDESIGN',
+        'text': 'From September 2, 2026 to September 8, 2026 I redesigned the project page layout entirely, including how ' +
+          'header links, images, and text are placed and how it responds on smaller screens, removed the navigation bar altogether, ' +
+          'rebuilt the home page to show every project with filterable tags, redesigned the project cards, and replaced every font on the ' +
+          'site along with adding Material Symbols icons throughout. You\'re welcome. '
       }
     ]
   },
@@ -157,6 +247,8 @@ export const ProjectPage = {
       },
       {
         'header': 'INTERACTION SYSTEM',
+        'link': '/projects/posh-framework/interaction-system',
+        'linkInternal': true,
         'text': 'There are also some mechanics which I cannot really take screenshots of. My interaction system allows for ' +
           'certain Interactable Objects to only ever be used by the host of the lobby. I had an issue where if a client tried to initiate a map travel, ' +
           'Steam would disconnect them. This host/client interaction authority split makes sure that Steam will not complain when a client does something ' +
@@ -249,6 +341,13 @@ export const ProjectPage = {
           'and connected them together in engine. There are no textures yet, as I want to focus on learning Blender and creating the game mechanics first. ' +
           'In this scene, the Player has just started the game, and is making their way to the Ships Main Reactor. ' +
           'The lights on the ceiling rotate quickly, giving a sense of urgency as well as lighting the path for the Player. '
+      },
+      {
+        'header': 'ITEMS',
+        'link': '/projects/posh-framework/item-system',
+        'linkInternal': true,
+        'text': 'This is the first project where created my newest iteration of my item system. When making the laser gun, ' +
+          'I decided to solve a lot of my long-standing problems with the old system I had. I then incorporated these changes into my framework. '
       }
     ]
   },
@@ -311,6 +410,7 @@ export const ProjectPage = {
           {
             'title': 'PLAYER',
             'link': 'player',
+            'image': 'media/posh/player/PlayerBlueprint.png'
           },
           {
             'title': 'INTERACTION',
@@ -395,6 +495,7 @@ export const FeaturePage = {
       },
       {
         'header': 'INPUT HELPER',
+        'image': 'media/posh/player/PlayerInputHelper.png',
         'text': 'The input helper is a static function library designed to assist with assigning and removing enhanced input contexts ' +
           'from the player. It simplifies the syntax and makes it easy to add and remove input context from anywhere. I use this in ' +
           'both the player pawn and controller to assign the appropriate input context assets. '
@@ -677,6 +778,7 @@ export const FeaturePage = {
           'made my life much, much, much easier. It is a very powerful system and I highly recommend using it. '
       },
       {
+        'image': 'media/posh/attributes/AttributesStats.png',
         'text': 'The Posh Attribute Set defines every stat the framework and its games can read from or modify through the Gameplay Ability System: health and regeneration, ' +
           'movement speeds, per-element damage resistances, crit chance and multiplier, bonus elemental damage, and three status effects (Bleed, Burn, Shock), each with ' +
           'its own Chance, Damage, Rate, and Duration. Corrode and Freeze are planned but not yet implemented. '
@@ -691,6 +793,7 @@ export const FeaturePage = {
       },
       {
         'header': 'DAMAGE EXECUTION',
+        'image': 'media/posh/attributes/AttributesDamage.png',
         'text': 'The actual damage calculation lives in a separate Gameplay Effect Execution Calculation, which captures crit, bonus damage, and status-effect attributes, ' +
           'then reads the base incoming damage per element from Set By Caller tags supplied by whatever weapon or ability triggered the effect. ' +
           'This keeps base damage numbers out of the attribute set entirely; they are provided at the moment of the hit rather than stored as persistent state. '
@@ -721,6 +824,7 @@ export const FeaturePage = {
       },
       {
         'header': 'GENERATION',
+        'image': 'media/posh/terrain/TerrainManager.png',
         'text': 'The terrain can be generated in editor or at runtime. I have a boolean on the actor that allows you to regenerate the ' +
           'terrain at will, optionally with a random seed. At runtime, the way I have it set up is that it will use whatever settings ' +
           'were assigned when the executable was built. A previous version of it supported menu settings, such as changing the size before ' +
@@ -732,6 +836,7 @@ export const FeaturePage = {
       },
       {
         'header': 'NOISE',
+        'image': 'media/posh/terrain/TerrainNoise.png',
         'text': 'The terrain height is build from four layered Perlin noise samples. I chose this amount because I didn\'t want ' +
           'the terrain to be noticeably repeating each time, and also because it allowed there to be landscape-wide elevation changes ' +
           'between generations. Each of the four layers is sampled at its own scale and multiplied by a unique Z-strength, then summed together at every vertex. ' +
@@ -746,6 +851,7 @@ export const FeaturePage = {
       },
       {
         'header': 'DISTANT TERRAIN',
+        'image': 'media/posh/terrain/TerrainDistant.png',
         'text': 'I wanted to make the world outside of the main map look massive in order to give the player a sense of scale, ' +
           'as well as to ensure that if you were up high or near the map edge it did not look like the map was floating in space. ' +
           'To accomplish this, I created an outer ring mesh, following the exact same noise as the main terrain, but at a lower resolution ' +
@@ -756,6 +862,7 @@ export const FeaturePage = {
       },
       {
         'header': 'LOCATIONS',
+        'image': 'media/posh/terrain/TerrainLocations.png',
         'text': 'The terrain can accept a list of \'locations\' to spawn around itself using a grid-based rejection ' +
           'technique similar to Poisson Disc sampling. This method chooses a random vertex and places a location. ' +
           'Then, from that location a radius is defined, and a random angle is generated. The terrain then tries to place a location' +
@@ -765,6 +872,7 @@ export const FeaturePage = {
           'the minimum amount of locations. '
       },
       {
+        'image': 'media/posh/terrain/TerrainFlat.png',
         'text': 'To ensure that any locations placed in the world are properly seated into the ground, I added a flattening pass to the terrain. ' +
           'This pass goes over every location and gets every vertex in a defined radius around it. It then sets the Z height of every one of those vertexes ' +
           'to be equal to the location Z height. Because this flattening step runs for every location, if the flatten radius and the location radius ' +
@@ -785,6 +893,7 @@ export const FeaturePage = {
       },
       {
         'header': 'BIOME PRESETS',
+        'image': 'media/posh/terrain/TerrainProfile.png',
         'text': 'I created a data asset that contains many of the variables for generating the terrain. This asset includes ' +
           'settings for the noise scales and multipliers as well as the tree density and spawning settings. These ' +
           'data assets allow designers to create predefined terrain types and easily swap between them. '
