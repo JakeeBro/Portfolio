@@ -328,9 +328,9 @@ export const ProjectPage = {
             'image': 'media/posh/inventory/InventoryCover.png'
           },
           {
-            'title': 'GAS',
-            'link': 'gas',
-            'image': 'media/posh/gas/GASCover.png'
+            'title': 'ATTRIBUTES',
+            'link': 'gameplay-attributes',
+            'image': 'media/posh/attributes/AttributesCover.png'
           },
           {
             'title': 'TERRAIN',
@@ -339,18 +339,6 @@ export const ProjectPage = {
           },
         ]
       },
-      {
-        'header': 'TOPIC GUIDE (WRITING REFERENCE - IGNORE)',
-        'text': 'Custom Player Pawn' +
-          '<br>Custom Player Controller' +
-          '<br>Interaction System' +
-          '<br>Item System' +
-          '<br>Inventory System' +
-          '<br>Damage System' +
-          '<br>Status Effects' +
-          '<br>Gameplay Ability System Extensions' +
-          '<br>Terrain Generation System'
-      }
     ]
   }
 } satisfies Record<string, IProjectData>;
@@ -363,9 +351,72 @@ export const FeaturePage = {
     'tech': ['Unreal Engine'],
     'sections': [
       {
-        'header': 'OVERVIEW',
-        'text': 'The Player Pawn'
-      }
+        'text': 'One of the first additions alongside the interaction system is the custom player pawn and controller. ' +
+          'This base player pawn handles movement, camera, jumping, and sprinting functionality. The base controller ' +
+          'handles some generic input like the pause menu, displaying other UI widgets, and implements the ControllerAuthority ' +
+          'interface for the interaction system. '
+      },
+      {
+        'header': 'GAMEPLAY ATTRIBUTES',
+        'link': '/projects/posh-framework/gameplay-attributes',
+        'linkInternal': true,
+        'text': 'As of August 2026 ' +
+          'I have updated the movement values to use attributes created with the Unreal Gameplay Ability System rather than hardcoding them. ' +
+          'The reason for this update is not just simply to add GAS support, but because my current project needed easily modifiable attributes. ' +
+          'I chose to implement GAS rather than roll my own system. ' +
+          'WalkSpeed, SprintSpeed, CrouchSpeed, AirControl, and JumpZVelocity all read from this attribute set, and can be easily ' +
+          'modified using Gameplay Effects, another of the Gameplay Ability Systems features. '
+      },
+      {
+        'text': 'These Gameplay Effects can be applied by a number of things, but in my current project I have them applied when ' +
+          'picking up certain items. '
+      },
+      {
+        'header': 'GAMEPLAY TAGS',
+        'text': 'Another feature of the Gameplay Ability System are Gameplay Tags. These tags can be used as logic gates or labels. ' +
+          'For example, my player checks to see if itself contains a tag such as StatusEffect.State.Stunned, and if so, prevents movement code ' +
+          'from running. The same tag can be checked against on enemies, allowing the player to disable their movement for a time as well. '
+      },
+      {
+        'header': 'MOVEMENT',
+        'text': 'Sprint and crouch both support toggle or hold inputs modes via a boolean flag and a \'gate\' to prevent duplicate inputs. ' +
+          'Sprint is server-authoritative and replicated, allowing clients to sprint in a multiplayer game. '
+      },
+      {
+        'text': 'Crouch was broken for a long time because I did not realize that the camera had to be directly attached to the capsule component,' +
+          'or at least another basic scene component. I had mine attached to a mesh component and it did not work. ' +
+          'After making that change, my crouch code which went unused for about a year finally worked flawlessly, with no other changes. ' +
+          'I will look into ensuring this is server-authoritative soon now that I know it actually works. '
+      },
+      {
+        'header': 'CAMERA',
+        'text': 'Look input supports both mouse and controller. A data asset stores the values for the players selected sensitivity, dead-zones, and ' +
+          'directional inversion settings. '
+      },
+      {
+        'header': 'INPUT HELPER',
+        'text': 'The input helper is a static function library designed to assist with assigning and removing enhanced input contexts ' +
+          'from the player. It simplifies the syntax and makes it easy to add and remove input context from anywhere. I use this in ' +
+          'both the player pawn and controller to assign the appropriate input context assets. '
+      },
+      {
+        'header': 'IN THE FUTURE',
+        'text': 'I have not added any support for giving the player a 3D model. I plan to add this eventually, however I am very ' +
+          'particular about how I want it done. I do not want a simple set of floating arms, although the first iteration will ' +
+          'likely be just that. Eventually I would like to implement a true first person system, allowing the player to see their ' +
+          'legs when they look down. '
+      },
+      {
+        'text': 'Sliding will be useful for faster paced games, ' +
+          'as well as just giving the player some level of freedom that they expect. As for the method of sliding, I prefer physics/momentum ' +
+          'based sliding in games - if you are sliding down a hill, you should reach the bottom of the hill before the slide cancels itself. ' +
+          'This is the type of slide I plan to implement when I am making a game that needs it. '
+      },
+      {
+        'text': 'The culmination of all the movement updates: wall-running. I am a big fan of the franchise Mirror\'s Edge, ' +
+          'and I have wanted to make a parkour game for a long time. All of these features coming together would provide full ' +
+          'flexibility within the framework, a grounded view of the players presence in the world, and enable the creation of parkour games. '
+      },
     ]
   },
   'interaction-system': {
@@ -561,6 +612,16 @@ export const FeaturePage = {
           'item-specific data can extend it directly, carrying both its configuration and its persistent state in one object, ' +
           'with no external array, no manual index adjustments, and no possibility of desync between an item and its state. '
       },
+      {
+        'header': 'IN THE FUTURE',
+        'text': 'The current item class has a toggle for enabling \'External Interaction\'. It does not function properly right now, ' +
+          'but I want to get it functional soon. I have a few horror game ideas that would be more fun in theory with such a mechanic. ' +
+          'This mechanic is meant to allow other players to use the items that you are holding in your hand. To bring the flashlight example back, ' +
+          'imagine you are playing a horror game and you need to sneak around a map. A flashlight would give you away. But if this setting was enabled, ' +
+          'a friend could come up and either help or hinder you in this moment, say if you don\'t hear a monster coming and forget to ' +
+          'turn your light off, or they are messing with you by turning your light on. ' +
+          'This mechanic is meant to be optional, but it enables largely unexplored types of cooperative gameplay regarding held items. '
+      },
     ]
   },
   'inventory-system': {
@@ -605,14 +666,49 @@ export const FeaturePage = {
       },
     ]
   },
-  'gas': {
-    'title': 'GAMEPLAY ABILITY SYSTEM',
+  'gameplay-attributes': {
+    'title': 'GAMEPLAY ATTRIBUTES',
     'tech': ['Unreal Engine'],
     'sections': [
       {
-        'header': 'OVERVIEW',
-        'text': 'Gameplay Ability System'
-      }
+        'text': 'Gameplay Attributes are a part of the Unreal Gameplay Ability System. I recently added this to the framework ' +
+          'to support development of my current project, which requires hooks into a lot of attributes for items to modify. ' +
+          'Rather than create my own attribute system (I tried and got nowhere) I decided to learn how to use GAS, and it has ' +
+          'made my life much, much, much easier. It is a very powerful system and I highly recommend using it. '
+      },
+      {
+        'text': 'The Posh Attribute Set defines every stat the framework and its games can read from or modify through the Gameplay Ability System: health and regeneration, ' +
+          'movement speeds, per-element damage resistances, crit chance and multiplier, bonus elemental damage, and three status effects (Bleed, Burn, Shock), each with ' +
+          'its own Chance, Damage, Rate, and Duration. Corrode and Freeze are planned but not yet implemented. '
+      },
+      {
+        'header': 'DIRECT DAMAGE MITIGATION',
+        'text': 'Incoming damage arrives on a dedicated, transient meta-attribute per element (Kinetic, Fire, Electric). PostGameplayEffectExecute reads the value, ' +
+          'resets the meta-attribute to zero, and converts it into mitigated damage using that element\'s resistance attribute as a percentage before subtracting it from Health. ' +
+          'Resistance is intentionally clamped differently depending on context: direct damage resistance is capped at -2 to 1, allowing vulnerability but never more than full mitigation, ' +
+          'while damage-over-time resistance is clamped -2 to 2, deliberately allowing a high enough resistance value to overshoot 100% mitigation and heal the target instead. ' +
+          'That second case was a deliberate design choice, because I thought it would be funny. '
+      },
+      {
+        'header': 'DAMAGE EXECUTION',
+        'text': 'The actual damage calculation lives in a separate Gameplay Effect Execution Calculation, which captures crit, bonus damage, and status-effect attributes, ' +
+          'then reads the base incoming damage per element from Set By Caller tags supplied by whatever weapon or ability triggered the effect. ' +
+          'This keeps base damage numbers out of the attribute set entirely; they are provided at the moment of the hit rather than stored as persistent state. '
+      },
+      {
+        'header': 'STATUS EFFECT PROCS',
+        'text': 'For each damage type, if incoming damage is greater than zero, a random roll against that element\'s Chance attribute decides whether a status effect procs. ' +
+          'If it does, a new Gameplay Effect Spec is built for the corresponding status, sourced from the attacker\'s Ability System Component rather than the victim\'s, ' +
+          'so that any resistances or bonuses tied to dealing that status correctly belong to the attacker. ' +
+          'The victim\'s target-side Damage, Rate, and Duration values for that status are then captured and pushed onto the new spec, and the spec\'s Period is set directly from ' +
+          'the Rate attribute. Setting Period is the entire implementation needed for the effect to tick, as GAS Gameplay Effects handle periodic application automatically from there. '
+      },
+      {
+        'header': 'IN THE FUTURE',
+        'text': 'Corrode and Freeze status effects are planned but not yet implemented, following the same Chance/Damage/Rate/Duration pattern as Bleed, Burn, and Shock. ' +
+          'Given that these could all be technically defined as game-specific, I should move them out of the framework. But seeing as I am the only one using it, ' +
+          'they will probably stay for a while. '
+      },
     ]
   },
   'terrain-gen': {
@@ -620,9 +716,101 @@ export const FeaturePage = {
     'tech': ['Unreal Engine'],
     'sections': [
       {
-        'header': 'OVERVIEW',
-        'text': 'Terrain Generation System'
-      }
+        'text': 'My terrain generation system, named Nysa, was built using a YouTube tutorial and lots of AI assisted coding. ' +
+          'I watched the tutorial for a baseline understanding, and then used the AI to help me expand it with features I wanted. '
+      },
+      {
+        'header': 'GENERATION',
+        'text': 'The terrain can be generated in editor or at runtime. I have a boolean on the actor that allows you to regenerate the ' +
+          'terrain at will, optionally with a random seed. At runtime, the way I have it set up is that it will use whatever settings ' +
+          'were assigned when the executable was built. A previous version of it supported menu settings, such as changing the size before ' +
+          'loading the generator in-game, or toggling tree generation, but this iteration of the generator does not feature this yet, as it relies on ' +
+          'the game instance to handle such a system, and I have not gotten around to making it easier to setup yet. '
+      },
+      {
+        'text': 'There is also no save system yet, so every time you play the game the map will be regenerated fresh. '
+      },
+      {
+        'header': 'NOISE',
+        'text': 'The terrain height is build from four layered Perlin noise samples. I chose this amount because I didn\'t want ' +
+          'the terrain to be noticeably repeating each time, and also because it allowed there to be landscape-wide elevation changes ' +
+          'between generations. Each of the four layers is sampled at its own scale and multiplied by a unique Z-strength, then summed together at every vertex. ' +
+          'Each layer has its own FRandomStream, seeded from a single master seed, plus a fixed offset per layer. '
+      },
+      {
+        'header': 'LOW POLY',
+        'text': 'Because I am a solo dev, I decided that I would make my games with a low poly art style to reduce the ' +
+          'difficulty of asset creation as I work. Because of this, it does not make sense to try to create a high resolution terrain. ' +
+          'The low poly aspect of this terrain is both a visual and performance based decision, providing a similar asset quality to ' +
+          'my desired art style, as well as fast generation on low end hardware such as the Steam Deck. '
+      },
+      {
+        'header': 'DISTANT TERRAIN',
+        'text': 'I wanted to make the world outside of the main map look massive in order to give the player a sense of scale, ' +
+          'as well as to ensure that if you were up high or near the map edge it did not look like the map was floating in space. ' +
+          'To accomplish this, I created an outer ring mesh, following the exact same noise as the main terrain, but at a lower resolution ' +
+          'to save processing power. I also set it to spawn slightly below the main terrain. This is because a lower resolution sample' +
+          'would have a different edge shape, potentially allowing the player to see underneath the map. ' +
+          'This outer mesh goes out far beyond the main mesh, and has an unnoticeable impact on performance from my testing. ' +
+          'It can also be optionally disabled. '
+      },
+      {
+        'header': 'LOCATIONS',
+        'text': 'The terrain can accept a list of \'locations\' to spawn around itself using a grid-based rejection ' +
+          'technique similar to Poisson Disc sampling. This method chooses a random vertex and places a location. ' +
+          'Then, from that location a radius is defined, and a random angle is generated. The terrain then tries to place a location' +
+          'at the intersection of the radius and this chosen angle. If it is within a certain radius of other chosen locations, then it is rejected. ' +
+          'Otherwise, if it is in a clear area, it accepts the chosen spot and makes it a location. Each disc has a set amount of attempts it will ' +
+          'iterate through to try to choose a valid angle. The amount of total locations can be limited as well, but there is no way to guarantee ' +
+          'the minimum amount of locations. '
+      },
+      {
+        'text': 'To ensure that any locations placed in the world are properly seated into the ground, I added a flattening pass to the terrain. ' +
+          'This pass goes over every location and gets every vertex in a defined radius around it. It then sets the Z height of every one of those vertexes ' +
+          'to be equal to the location Z height. Because this flattening step runs for every location, if the flatten radius and the location radius ' +
+          'are too different, you may have an issue where one location alters the flat area of another location. The solution to this is to ' +
+          'ensure that the location radius is always larger than the flattening radius. These values are set in the details panel on the generator. '
+      },
+      {
+        'header': 'TREE SCATTERING',
+        'text': 'The trees are spawned using bilinear interpolation across each quad of the mesh. There are configurable limits to how ' +
+          'steep of a slope allows trees to spawn, how many trees to try to spawn per quad, and how close trees can spawn to a location. ' +
+          'These settings allow the developer to ensure that trees do not spawn inside any locations or on cliffs. '
+      },
+      {
+        'header': 'PLAYER SPAWN',
+        'text': 'Because the terrain is randomly generated, I cannot predict where a valid location to spawn the player will be located at beforehand. ' +
+          'To solve this, I made a system that would get a vertex near the middle of the map, and move the player spawn to slightly above that point after ' +
+          'the terrain is done generating. '
+      },
+      {
+        'header': 'BIOME PRESETS',
+        'text': 'I created a data asset that contains many of the variables for generating the terrain. This asset includes ' +
+          'settings for the noise scales and multipliers as well as the tree density and spawning settings. These ' +
+          'data assets allow designers to create predefined terrain types and easily swap between them. '
+      },
+      {
+        'header': 'PROBLEMS AND SOLUTIONS',
+        'text': 'While testing the terrain generation, I noticed that some areas of the generated landscape would randomly be lit up, ' +
+          'regardless of whether the levels directional light was actually hitting the mesh in that spot. This confused me for a long time. ' +
+          'Initially I thought it was an issue with tangent generation, which is used for calculating light and shadows on the mesh faces, ' +
+          'but the issue stayed even with tangents disabled. ' +
+          'As I was looking around at one of the generated meshes, I noticed that the directional light was shining through the underside of the mesh, ' +
+          'and lighting the top. To fix this, I made the very edge of the both terrain layers a flat height, far below the bottom of the map, ' +
+          'to ensure that the directional light would never shine in such a way. '
+      },
+      {
+        'header': 'IN THE FUTURE',
+        'text': 'As of now, the terrain only supports one model of tree to be spawned at once. This is because I only use a single ' +
+          'Hierarchical Instanced Static Mesh component on the terrain. This component only has one slot for the static mesh to render. ' +
+          'A solution to this would likely involve multiple components like this, but I have not tested how to implement this into my generation code. '
+      },
+      {
+        'text': 'The biome preset data assets are not very customizable right now. Because I designed the terrain to generate a forest, ' +
+          'it is not really possible to include anything like ponds, lakes, streams, canyons, islands, caves, or any other special type of land formation. ' +
+          'It is also not possible to change the terrain texture using this. In the future I would like to expand this ' +
+          'feature to support more drastic changes to the terrain. '
+      },
     ]
   },
 } satisfies Record<string, IProjectData>
